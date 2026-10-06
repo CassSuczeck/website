@@ -136,6 +136,7 @@ f'''<section class="hero">
         <li>Belts, pulleys, and suspension</li>
         <li>Small fixes: bulbs, sun visors, mirrors, door latches</li>
         <li>Dash cams, tow hitches, and other accessories</li>
+        <li>Pre-purchase and multipoint inspections</li>
       </ul>
       <p><a href="/services/">See all services</a></p>
     </div>
@@ -197,12 +198,17 @@ def svc(title, price, intro, items_title, items, why, extra=''):
     </article>'''
 
 page('/services/', 'Mobile Auto Repair Services in Middletown, NJ | Safe Travels Mobile Repair',
-     'Brakes, batteries, diagnostics, small fixes and more, done at your home or office around Middletown and Port Monmouth, NJ. Free phone consultation.',
+     'Mobile auto repair at your home or work in Monmouth County, NJ: quick fixes, dash cam installs, engine washes, plus pre-purchase and multipoint inspections.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Services</h1>
     <p class="lede">Prices are starting prices. Same-day availability on business days in most cases: we return voicemails the same day and can often fit in a diagnostic visit the same day too.</p>
     <div class="btn-row"><a class="btn" href="{CALC}">Get my estimate</a><a class="btn alt" href="/appointments/">Schedule a consultation</a></div>
+    <div class="card" style="margin:8px 0 12px;">
+      <h2 style="font-size:21px;">Facing a big repair on an older car?</h2>
+      <p>Our free tool compares the cost of fixing your car with the cost of trading it in for a newer one, in about two minutes.</p>
+      <a class="btn alt" href="https://tools.besafetravels.com/fix-or-trade/" target="_blank" rel="noopener">Fix it, or trade it in?<span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
     {svc('Common Repairs &amp; Quick Fixes', 'Free phone consultation · Small jobs start at a $25 trip fee',
          '<p><em>We handle the small jobs that are easy to put off but annoying to live with, done at your home or office, no shop visit needed.</em></p><p>Covers: brakes, belts &amp; pulleys, door latches &amp; handles, sun visors (including a visor light that’s stopped working), hood or tailgate that won’t stay open, headlights, taillights, side mirrors, license plate lights, interior lights, and other bulb replacements.</p>',
          'How pricing works',
@@ -211,6 +217,24 @@ f'''<section>
           '<strong>Several small jobs:</strong> bundle them to reach the one-hour minimum ($159.99), and we waive the trip fee and mileage.',
           '<strong>Repairs and on-site diagnostics</strong> (like brakes or belts): $159.99 per hour, one-hour minimum. Diagnostic time is credited toward the repair if you go ahead.'],
          ['Small jobs handled quickly, without a shop appointment', 'Genuine parts and proper diagnosis, not guesswork', 'One trip covers multiple small fixes at once'])}
+    {svc('Pre-Purchase Inspection', '$59.99',
+         '<p class="small">Trip fee and mileage may apply for locations more than a 30-minute drive away.</p><p>Buying a used car? We meet you where the car is, at the seller’s driveway or the lot, and check it over before you commit, so you know what you’re buying.</p>',
+         'What we check',
+         ['Computer scan for stored and pending trouble codes, plus readiness monitors (they show whether codes were cleared recently)',
+          'Engine and transmission: leaks, fluid level and condition, belts and hoses',
+          'Brakes, tires (tread and age), suspension and steering', 'Battery and charging system',
+          'Rust underneath: frame, subframe and brake lines (New Jersey road salt makes this worth a look)',
+          'Lights, wipers, and signs of past body or flood repair', 'A short test drive, when the seller allows it'],
+         ['We come to the car; no need to bring it to a shop', 'An independent second opinion before you sign', 'Ask us anything on the spot'],
+         '<p><strong>What you get:</strong> a plain-language summary of what we found, what needs attention soon, and what can wait, so you can decide, or ask the seller about price.</p><p class="small"><em>Ask the seller’s permission first; dealerships usually allow an outside inspection on their lot.</em></p>')}
+    {svc('Multipoint Vehicle Inspection', '$99.99',
+         '<p class="small">Trip fee and mileage may apply for locations more than a 30-minute drive away.</p><p>A full check-up for the car you already drive, at your home or work. We look it over from top to bottom and tell you what’s in good shape, what needs attention soon, and what can wait.</p>',
+         'What we check',
+         ['Computer scan for trouble codes', 'Fluids: oil, coolant, brake, transmission and power-steering, plus any leaks',
+          'Brakes: pads, rotors and lines', 'Tires: tread, wear pattern and pressure', 'Battery and charging system test',
+          'Belts, hoses, suspension and steering', 'Lights, wipers and horn', 'Rust underneath: frame, subframe and brake lines'],
+         ['Good before a road trip, before winter, after buying a car, or when you’re deciding whether to fix it or trade it in', 'One visit, at your home or work'],
+         '<p><strong>What you get:</strong> a prioritized list (now / soon / later) with a price for anything you’d like us to fix.</p><p class="small"><em>This is a mechanical check-up, not the NJ MVC state inspection.</em></p>')}
     {svc('Privacy Upgrades', '$159.99 per hour, one-hour minimum, plus parts',
          '<p>Many newer cars send driving data, such as location, speed, and braking, back to the manufacturer. If you’d rather keep that data private, we can disable it.</p>',
          'We offer',
