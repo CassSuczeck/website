@@ -6,9 +6,12 @@
   --line:#8A93B8; --error:#A4161A; --ok:#1B6B34;
   color-scheme: light;
 }
+/* Fallback fonts sized like Inter and Montserrat, so text keeps its shape when the web fonts swap in (less layout shift). */
+@font-face{ font-family:"Inter Fallback"; src:local("Arial"), local("Liberation Sans"), local("Helvetica"); size-adjust:107%; ascent-override:90%; descent-override:22.5%; line-gap-override:0%; }
+@font-face{ font-family:"Montserrat Fallback"; src:local("Arial"), local("Liberation Sans"), local("Helvetica"); size-adjust:113%; ascent-override:85.7%; descent-override:22.2%; line-gap-override:0%; }
 *{ box-sizing:border-box; }
 html{ -webkit-text-size-adjust:100%; }
-body{ margin:0; background:var(--white); color:var(--charcoal); font:17px/1.6 Inter, Arial, sans-serif; }
+body{ margin:0; background:var(--white); color:var(--charcoal); font:17px/1.6 Inter, "Inter Fallback", Arial, sans-serif; }
 img{ max-width:100%; height:auto; }
 a{ color:var(--navy); font-weight:600; text-underline-offset:3px; }
 :focus-visible{ outline:3px solid var(--navy); outline-offset:2px; }
@@ -18,7 +21,7 @@ a{ color:var(--navy); font-weight:600; text-underline-offset:3px; }
 .wrap{ max-width:1040px; margin:0 auto; padding:0 16px; }
 .narrow{ max-width:760px; }
 
-h1,h2,h3{ font-family:Montserrat, Arial, sans-serif; color:var(--navy); line-height:1.2; }
+h1,h2,h3{ font-family:Montserrat, "Montserrat Fallback", Arial, sans-serif; color:var(--navy); line-height:1.2; }
 h1{ font-weight:900; font-size:clamp(30px,5vw,44px); margin:0 0 12px; }
 h2{ font-weight:800; font-size:clamp(24px,3.4vw,30px); margin:0 0 14px; }
 h3{ font-weight:700; font-size:19px; margin:0 0 8px; }
@@ -29,7 +32,9 @@ p{ margin:0 0 14px; }
 header.site{ background:var(--bluegray); }
 header.site .wrap{ display:flex; align-items:center; justify-content:space-between; gap:12px 20px; flex-wrap:wrap; padding-top:12px; padding-bottom:12px; }
 .logo{ display:block; line-height:0; }
-.logo img{ height:48px; width:auto; }
+.logo img{ height:48px; width:224px; }
+/* The menu always gets its own row, so the header keeps the same height while web fonts load (CLS fix, 2026-10-06). */
+nav.main{ order:3; width:100%; }
 nav.main ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:4px 18px; }
 nav.main a{ font-weight:500; text-decoration:none; display:inline-block; padding:8px 0; }
 nav.main a:hover, nav.main a[aria-current="page"]{ text-decoration:underline; }
@@ -37,13 +42,12 @@ nav.main a[aria-current="page"]{ font-weight:700; }
 @media (max-width:760px){
   header.site .wrap{ justify-content:space-between; }
   header.site .btn{ font-size:15px; padding:9px 16px; min-height:44px; }
-  nav.main{ order:3; width:100%; }
   nav.main ul{ justify-content:center; gap:0 16px; }
-  .logo img{ height:36px; }
+  .logo img{ height:36px; width:168px; }
 }
 
 /* Buttons */
-.btn{ display:inline-block; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:17px; text-decoration:none; text-align:center;
+.btn{ display:inline-block; font-family:Montserrat, "Montserrat Fallback", Arial, sans-serif; font-weight:700; font-size:17px; text-decoration:none; text-align:center;
   background:var(--coral); color:var(--navy); border:2px solid var(--coral); padding:13px 26px; border-radius:999px; min-height:48px; }
 .btn:hover{ background:#f96f56; border-color:#f96f56; }
 .btn.alt{ background:transparent; border-color:var(--navy); }
@@ -77,11 +81,11 @@ blockquote.review footer{ font-size:15px; color:var(--navy); font-weight:600; }
 /* Services */
 .service{ border-top:1px solid #d5dcef; padding:28px 0; }
 .service:first-of-type{ border-top:0; }
-.price{ font-family:Montserrat, Arial, sans-serif; font-weight:800; color:var(--navy); font-size:20px; margin:0 0 10px; }
+.price{ font-family:Montserrat, "Montserrat Fallback", Arial, sans-serif; font-weight:800; color:var(--navy); font-size:20px; margin:0 0 10px; }
 
 /* FAQ */
 details{ border-bottom:1px solid #c3cde8; }
-details summary{ cursor:pointer; list-style:none; padding:18px 40px 18px 0; position:relative; font-family:Montserrat, Arial, sans-serif; font-weight:700; color:var(--navy); font-size:19px; }
+details summary{ cursor:pointer; list-style:none; padding:18px 40px 18px 0; position:relative; font-family:Montserrat, "Montserrat Fallback", Arial, sans-serif; font-weight:700; color:var(--navy); font-size:19px; }
 details summary::-webkit-details-marker{ display:none; }
 details summary::after{ content:"+"; position:absolute; right:6px; top:12px; font-size:28px; font-weight:400; }
 details[open] summary::after{ content:"\2212"; }
@@ -89,7 +93,7 @@ details .answer{ padding:0 0 18px; }
 
 /* Forms */
 label{ display:block; font-weight:600; color:var(--navy); margin:0 0 6px; }
-input, textarea{ width:100%; font:17px Inter, Arial, sans-serif; color:var(--charcoal); background:#fff; border:1.5px solid var(--line); border-radius:10px; padding:12px; min-height:48px; }
+input, textarea{ width:100%; font:17px Inter, "Inter Fallback", Arial, sans-serif; color:var(--charcoal); background:#fff; border:1.5px solid var(--line); border-radius:10px; padding:12px; min-height:48px; }
 textarea{ min-height:140px; resize:vertical; }
 .field{ margin:0 0 16px; }
 .trap{ position:absolute; left:-9999px; }

@@ -158,7 +158,7 @@ f'''<section class="hero">
       <p>We come to you in {TOWNS}.</p>
       <p>Don’t see your town? Call or text <a href="{TEL}">(908) 986-3415</a>.</p>
     </div>
-    <a class="map" href="{MAPS}"><img src="/assets/service-area-map.jpg" width="920" height="968" loading="lazy" alt="Map of the Safe Travels Mobile Repair service area in New Jersey, from Woodbridge and Perth Amboy south through Sayreville, Old Bridge, Hazlet, Holmdel, Middletown, Red Bank, Rumson, Eatontown and Long Branch to Asbury Park and Wall. Opens the interactive map."></a>
+    <a class="map" href="{MAPS}"><picture><source type="image/webp" srcset="/assets/service-area-map-490.webp 490w, /assets/service-area-map.webp 920w" sizes="(max-width: 760px) 92vw, 490px"><img src="/assets/service-area-map.jpg" width="920" height="968" loading="lazy" alt="Map of the Safe Travels Mobile Repair service area in New Jersey, from Woodbridge and Perth Amboy south through Sayreville, Old Bridge, Hazlet, Holmdel, Middletown, Red Bank, Rumson, Eatontown and Long Branch to Asbury Park and Wall. Opens the interactive map."></picture></a>
   </div>
 </section>
 <section class="tint">
