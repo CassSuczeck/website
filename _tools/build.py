@@ -75,7 +75,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
         <p>Visits: 8:30am to 5pm, Monday to Saturday</p>
       </div>
     </div>
-    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/privacy/">Privacy policy</a> · <a href="/sms-terms/">Text message terms</a></p>
+    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/privacy/">Privacy policy</a></p>
   </div>
 </footer>
 </body>
@@ -320,7 +320,7 @@ f'''<section>
       <div class="field"><label for="c-msg">What’s going on with the car? (required)</label><textarea id="c-msg" name="message" placeholder="e.g. grinding noise when braking, check engine light on" required></textarea></div>
       <div class="trap" aria-hidden="true"><label for="c-web">Leave this empty</label><input id="c-web" name="website" tabindex="-1" autocomplete="off"></div>
       <div id="c-status" role="status" aria-live="polite"></div>
-      <p class="small">By sending this, you agree Safe Travels may call or text you about your request. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy/">privacy policy</a> and <a href="/sms-terms/">text message terms</a>.</p>
+      <p class="small">By sending this, you agree Safe Travels may call or text you about your request. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy/">privacy policy</a>.</p>
       <button class="btn" type="submit">Send message</button>
     </form>
   </div>
@@ -522,21 +522,11 @@ f'''<section><div class="wrap narrow">
 <p>To answer your request, give you a price, schedule and do the work, and follow up about that work. We don’t send marketing texts.</p>
 <h2>Who else handles it</h2>
 <p>A few services help us run the site: Calendly (booking), Google (fonts on this site and our email and form tools), and Google Voice (our business phone line, for calls and texts). They process your information for us, not for their own marketing. We never sell or share your mobile number or text consent for anyone’s marketing.</p>
+<h2 id="texts">Calls and texts</h2>
+<p>When you text us or give us your number on a form, we may call or text you about your request: replies, estimates, scheduling, arrival times, and follow-up on the work. How often depends on the job. Message and data rates may apply. Reply STOP to stop texts, or HELP for help.</p>
 <h2>Your choices</h2>
 <p>To see, correct, or delete what we have about you, call or text <a href="{TEL}">(908) 986-3415</a> or email <a href="mailto:info@besafetravels.com">info@besafetravels.com</a>. Reply STOP to any text to stop texts.</p>
 <p class="small">Be Safe Travels LLC, Port Monmouth, NJ 07758. Last updated October 2026.</p>
-</div></section>''')
-page('/sms-terms/', 'Text message terms | Safe Travels Mobile Repair', 'Terms for text messages from Safe Travels Mobile Repair.',
-f'''<section><div class="wrap narrow">
-<h1>Text message terms</h1>
-<p class="lede">When you text us or give us your number on a form, we may call or text you about your request.</p>
-<ul>
-<li><strong>What we send:</strong> replies about your request, estimates, scheduling, arrival times, and follow-up on the work. No marketing texts.</li>
-<li><strong>How often:</strong> it varies with your job, usually a few messages.</li>
-<li><strong>Cost:</strong> message and data rates may apply.</li>
-<li><strong>Stop:</strong> reply STOP at any time. Reply HELP for help, or call <a href="{TEL}">(908) 986-3415</a>.</li>
-<li><strong>Your number:</strong> we never sell or share your mobile number or text consent for marketing. See our <a href="/privacy/">privacy policy</a>.</li>
-</ul>
 </div></section>''')
 
 open(os.path.join(OUT, 'robots.txt'), 'w').write('# Preview: keep search engines out until launch\nUser-agent: *\nDisallow: /\n')

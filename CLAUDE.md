@@ -13,7 +13,7 @@ _tools/build.py          page generator: all page text, header, footer and nav l
 index.html               Home
 services/ calculator/ reviews/ appointments/ contact/ about/ faq/ cars-we-work-on/ our-tools/   one index.html each
 mobile-mechanic-<town>-nj/  one page per town in Home's "Where we work" list (TOWNS + TOWN_PAGES in build.py)
-privacy/ sms-terms/       privacy policy and text message terms (drafts, from the 2026-10-13 compliance check)
+privacy/                 privacy policy, incl. calls and texts (draft, from the 2026-10-13 compliance check)
 404.html  robots.txt
 assets/site.css          all styles (brand tokens at the top)
 assets/logo.png|webp, favicon.png, apple-touch-icon.png, service-area-map.jpg, feather.jpg + feather-480|800.webp (About photo)
@@ -31,11 +31,11 @@ No other build step; GitHub Pages serves the files as they are.
 - **Cars we work on** (`/cars-we-work-on/`): make list copied from the calculator's `BRAND_TIER`/`DOMESTIC_MAKES` (Tools repo). Keep the two in sync.
 - **Our Tools** (`/our-tools/`): tool and factory-software brands from the calculator repo's `docs/brands-page-draft.md` (to-do 16). Names only: logos need each brand's written OK.
 - Adding a town: add it to both `TOWNS` and `TOWN_PAGES` (the home list links every town to its page).
-- **Privacy policy and text terms** (`/privacy/`, `/sms-terms/`): drafts written for the Oct 13, 2026 compliance check; Feather's final wording, optional NJ attorney review. The privacy page names Calendly, Google and Google Voice (business calls and texts). Add any new service that handles customer data.
+- **Privacy policy** (`/privacy/`, with a "Calls and texts" section; Feather 2026-10-13: no separate SMS terms page): draft written for the Oct 13, 2026 compliance check; Feather's final wording, optional NJ attorney review. The privacy page names Calendly, Google and Google Voice (business calls and texts). Add any new service that handles customer data.
 
 ## Compliance (check of Oct 13, 2026)
-- Contact form and calculator form both carry the call/text consent line ("Reply STOP to opt out"). The calculator line has no links yet: add links to `/privacy/` and `/sms-terms/` once the new site is live.
-- Every page footer links to `/privacy/` and `/sms-terms/`. Mileage is stated as $1 per mile, round trip, from Port Monmouth wherever it is mentioned.
+- Contact form and calculator form both carry the call/text consent line ("Reply STOP to opt out"). The calculator line has no links yet: add a link to `/privacy/` once the new site is live.
+- Every page footer links to `/privacy/`. Mileage is stated as $1 per mile, round trip, from Port Monmouth wherever it is mentioned.
 - Estimates: Feather's T&C ("BST T&C 07.30.2026", Drive) cites N.J.A.C. 13:45A-26C.2 and prints the required customer notice. She always gives a written estimate (never uses the waiver). Odometer photo and repair description are recorded at the car in her shop management software (uploaded to Carfax).
 - Review sources: C.W., D.P. on Nextdoor; C.H., E.C. on Google; the dash cam review is by Feather's spouse, so its attribution says so (FTC endorsement rule: disclose family ties). Keep a screenshot of each.
 
