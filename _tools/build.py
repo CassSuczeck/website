@@ -315,7 +315,9 @@ f'''<section>
       <div class="field"><label for="c-name">Name (required)</label><input id="c-name" name="name" autocomplete="name" required></div>
       <div class="field"><label for="c-phone">Phone (required)</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" required></div>
       <div class="field"><label for="c-email">Email (optional)</label><input id="c-email" name="email" type="email" autocomplete="email"></div>
-      <div class="field"><label for="c-msg">How can we help? (required)</label><textarea id="c-msg" name="message" required></textarea></div>
+      <div class="field"><label for="c-vehicle">Vehicle: year, make and model (required)</label><input id="c-vehicle" name="vehicle" placeholder="e.g. 2015 Honda Accord" required></div>
+      <div class="field"><label for="c-town">Town where the car is (required)</label><input id="c-town" name="town" list="c-towns" autocomplete="address-level2" required><datalist id="c-towns">{''.join('<option value="%s">' % t for t in _t)}</datalist></div>
+      <div class="field"><label for="c-msg">What’s going on with the car? (required)</label><textarea id="c-msg" name="message" placeholder="e.g. grinding noise when braking, check engine light on" required></textarea></div>
       <div class="trap" aria-hidden="true"><label for="c-web">Leave this empty</label><input id="c-web" name="website" tabindex="-1" autocomplete="off"></div>
       <div id="c-status" role="status" aria-live="polite"></div>
       <button class="btn" type="submit">Send message</button>
@@ -330,8 +332,9 @@ f'''<section>
   function say(cls, t){{ st.className = 'msg ' + cls; st.textContent = t; }}
   f.addEventListener('submit', function(e){{
     e.preventDefault();
-    var name = f.name.value.trim(), phone = f.phone.value.trim(), msg = f.message.value.trim(), email = f.email.value.trim();
-    if (!name || phone.replace(/\\D/g,'').length < 10 || !msg) {{ say('err', 'Please add your name, a phone number with at least 10 digits, and a message.'); return; }}
+    var el = f.elements, v = function(n){{ return el[n].value.trim(); }};
+    var name = v('name'), phone = v('phone'), email = v('email'), vehicle = v('vehicle'), town = v('town'), msg = v('message');
+    if (!name || phone.replace(/\\D/g,'').length < 10 || !vehicle || !town || !msg) {{ say('err', 'Please add your name, a phone number with at least 10 digits, your vehicle, your town, and what’s going on with the car.'); return; }}
     if (email && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {{ say('err', 'Please check your email address, or leave it blank.'); return; }}
     if (!ENDPOINT) {{ say('err', 'This is a preview: the form isn’t connected yet. Please call or text (908) 986-3415.'); return; }}
   }});
