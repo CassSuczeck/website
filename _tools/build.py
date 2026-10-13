@@ -62,6 +62,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
       <div>
         <h2>Safe Travels Mobile Repair</h2>
         <p>Mobile auto repair based in Port Monmouth, NJ 07758. We come to your home or work across Monmouth County and nearby towns.</p>
+        <p><a href="/mobile-mechanic-middletown-nj/">Middletown</a> · <a href="/mobile-mechanic-red-bank-nj/">Red Bank</a> · <a href="/mobile-mechanic-holmdel-nj/">Holmdel</a> · <a href="/mobile-mechanic-hazlet-nj/">Hazlet</a> · <a href="/brands/">Brands we work on</a></p>
       </div>
       <div>
         <h2>Contact</h2>
@@ -340,6 +341,7 @@ page('/about/', 'About Us | Safe Travels Mobile Repair, Middletown NJ',
 f'''<section>
   <div class="wrap narrow">
     <h1>Who we are</h1>
+    <figure class="founder"><picture><source type="image/webp" srcset="/assets/feather-480.webp 480w, /assets/feather-800.webp 800w" sizes="(max-width: 760px) 92vw, 320px"><img src="/assets/feather.jpg" width="800" height="800" alt="Feather Waters, founder of Safe Travels Mobile Repair, in a Safe Travels work shirt"></picture><figcaption>Feather Waters, founder and technician</figcaption></figure>
     <p class="lede">Safe Travels Mobile Repair is a family-owned mobile auto repair service based in Middletown, NJ, that brings expert and honest auto care to you, on your schedule, so your car and life stay on track.</p>
     <p>We proudly serve drivers within about 30 minutes of Middletown, including Red Bank, Holmdel, and Hazlet.</p>
     <p>Founded by Feather Waters, a seasoned technician with over 15 years of experience, we specialize in on-site car diagnostics, vehicle inspections, and mobile car repairs that fit your schedule and lifestyle. Feather’s expertise spans from passenger cars to heavy-duty equipment, like semis and excavators. Whether you need a pre-purchase car inspection, help with a check engine light, or a solution for slow-moving windows or electrical issues, she’ll get to the root of the problem and explain it clearly before any work begins.</p>
@@ -349,10 +351,76 @@ f'''<section>
       <li>Mobile safety inspections</li>
       <li>Car diagnostics</li>
       <li>Dash cam and backup camera installation</li>
+      <li><a href="/brands/">Brands we work on</a></li>
     </ul>
     <div class="btn-row"><a class="btn" href="/contact/">Contact us</a><a class="btn alt" href="{CALC}">Get my estimate</a></div>
   </div>
 </section>''', 'About')
+
+
+# ---------------- Town pages ----------------
+TOWN_PAGES = [
+  ('middletown', 'Middletown',
+   'Our home base is Port Monmouth, part of Middletown Township, so Middletown is the area we cover most often and usually the easiest to fit in the same day.',
+   'Whether you’re in Port Monmouth, Belford, Leonardo, Lincroft, or near the train station, we work in your driveway or your work parking lot.'),
+  ('red-bank', 'Red Bank',
+   'Red Bank is a short drive from our base in Port Monmouth, well inside our usual service area.',
+   'If you work downtown, we can fix your car in your work lot while you’re at your desk, so you don’t lose a day to the shop.'),
+  ('holmdel', 'Holmdel',
+   'Holmdel is a short drive from our base in Port Monmouth, well inside our usual service area.',
+   'We come to your home or office, so a check engine light or a broken latch doesn’t mean a trip to the shop and a ride back.'),
+  ('hazlet', 'Hazlet',
+   'Hazlet borders Middletown and is one of the closest towns to our base in Port Monmouth.',
+   'Small jobs like bulbs, mirrors and latches are quick to fit in, and bundling a few of them waives the trip fee.'),
+]
+for slug, town, p1, p2 in TOWN_PAGES:
+    page(f'/mobile-mechanic-{slug}-nj/', f'Mobile Mechanic in {town}, NJ | Safe Travels',
+         f'Mobile auto repair at your home or work in {town}, NJ: diagnostics, brakes, inspections and quick fixes. Free phone consult. Call (908) 986-3415.',
+f"""<section>
+  <div class="wrap narrow">
+    <h1>Mobile mechanic in {town}, NJ</h1>
+    <p class="lede">Safe Travels Mobile Repair comes to you in {town}. No shop visit, no towing, no waiting room.</p>
+    <p>{p1} {p2}</p>
+    <h2>What we do in {town}</h2>
+    <ul class="checks">
+      <li>Check engine lights and on-site diagnostics</li>
+      <li>Brake pads, rotors and full brake jobs</li>
+      <li>Pre-purchase inspections ($59.99) and multipoint inspections ($99.99)</li>
+      <li>Bulbs, mirrors, latches, sun visors and other quick fixes</li>
+      <li>Dash cam, backup camera and tow hitch installs</li>
+    </ul>
+    <p><a href="/services/">See all services and prices</a> · <a href="/brands/">Brands we work on</a></p>
+    <h2>How pricing works</h2>
+    <p>The phone consultation is free. Repairs and on-site diagnostics are $159.99 per hour with a one-hour minimum, plus parts, and diagnostic time is credited toward the repair. You get a written estimate before any work begins.</p>
+    {BTNS}
+  </div>
+</section>""")
+
+# ---------------- Brands ----------------
+def makes(*m): return ', '.join(m)
+page('/brands/', 'Car Brands We Work On | Safe Travels Mobile Repair',
+     'Mobile repair for domestic, Japanese, Korean and European cars, model year 1996 and newer, plus Maserati. See which makes we service in Monmouth County.',
+f"""<section>
+  <div class="wrap narrow">
+    <h1>Brands we work on</h1>
+    <p class="lede">We work on most gas and hybrid cars, SUVs, trucks and vans from model year 1996 on, domestic and imported.</p>
+    <h2>American</h2>
+    <p>{makes('Buick','Cadillac','Chevrolet','Chrysler','Dodge','Ford','GMC','Hummer','Jeep','Lincoln','Mercury','Oldsmobile','Plymouth','Pontiac','Ram','Saturn')}</p>
+    <h2>Japanese and Korean</h2>
+    <p>{makes('Acura','Genesis','Honda','Hyundai','Infiniti','Isuzu','Kia','Lexus','Mazda','Mitsubishi','Nissan','Scion','Subaru','Suzuki','Toyota')}</p>
+    <h2>European</h2>
+    <p>{makes('Alfa Romeo','Audi','BMW','Fiat','Jaguar','Land Rover','Maserati','Mercedes-Benz','Mini','Porsche','Saab','Smart','Volkswagen','Volvo')}</p>
+    <p class="small">For imported makes, work varies a lot from model to model, so we confirm the price after a look.</p>
+    <h2>Where we refer you to a specialist</h2>
+    <ul class="checks">
+      <li><strong>Electric vehicles:</strong> we do tow hitch and accessory installs, and in some cases brakes, suspension and interior work. For anything else, we’ll point you to a shop that does.</li>
+      <li><strong>Cars older than model year 1996</strong>, before standard OBD-II diagnostics.</li>
+      <li><strong>Exotics</strong> such as Ferrari, Lamborghini, Bentley, Rolls-Royce, Aston Martin, McLaren and Lotus, and Maserati’s MC20 and MCPura.</li>
+    </ul>
+    <p>Not sure about your car? Call or text <a href="{TEL}">(908) 986-3415</a>.</p>
+    {BTNS}
+  </div>
+</section>""")
 
 # ---------------- FAQ ----------------
 def q(qq, a): return f'<details><summary>{qq}</summary><div class="answer"><p>{a}</p></div></details>'

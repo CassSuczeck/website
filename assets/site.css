@@ -114,3 +114,7 @@ footer.site .legal{ margin-top:22px; opacity:.9; }
 
 /* Preview banner (remove at launch) */
 .preview-banner{ background:#fff4d6; color:#5a3b00; text-align:center; font-size:14px; padding:6px 12px; }
+.founder{ float:right; width:320px; margin:0 0 16px 24px; }
+.founder img{ border-radius:16px; display:block; }
+.founder figcaption{ font-size:14px; margin-top:6px; text-align:center; }
+@media (max-width:760px){ .founder{ float:none; width:100%; max-width:360px; margin:0 auto 16px; } }
