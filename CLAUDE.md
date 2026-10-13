@@ -11,10 +11,11 @@ The coded version of besafetravels.com for **Safe Travels Mobile Repair** (Be Sa
 ```
 _tools/build.py          page generator: all page text, header, footer and nav live here
 index.html               Home
-services/ calculator/ reviews/ appointments/ contact/ about/ faq/   one index.html each
+services/ calculator/ reviews/ appointments/ contact/ about/ faq/ brands/   one index.html each
+mobile-mechanic-<town>-nj/  one page per town in Home's "Where we work" list (TOWNS + TOWN_PAGES in build.py)
 404.html  robots.txt
 assets/site.css          all styles (brand tokens at the top)
-assets/logo.png|webp, favicon.png, apple-touch-icon.png, service-area-map.jpg
+assets/logo.png|webp, favicon.png, apple-touch-icon.png, service-area-map.jpg, feather.jpg + feather-480|800.webp (About photo)
 ```
 URLs match the Squarespace site so links and rankings survive a switch.
 
@@ -23,6 +24,11 @@ URLs match the Squarespace site so links and rankings survive a switch.
 2. Run `python3 _tools/build.py` from the repo root. It rewrites every page.
 3. Check in a browser (local: `python3 -m http.server` in the repo root), commit the regenerated HTML.
 No other build step; GitHub Pages serves the files as they are.
+
+## Needs Feather's review before launch
+- **Town page intros** (`TOWN_PAGES` in `build.py`, 24 towns): each has one or two lines of local fact (borders, neighborhoods, rivers). Confirm each is right and that she wants to be listed there. Towns marked "edge of our service area" (Asbury Park, Wall, Perth Amboy, Woodbridge) say a $1/mile round-trip charge may apply beyond 30 minutes; check which towns are really beyond 30 minutes.
+- **Brands page** (`/brands/`): make list copied from the calculator's `BRAND_TIER`/`DOMESTIC_MAKES` (Tools repo). Keep the two in sync.
+- Adding a town: add it to both `TOWNS` and `TOWN_PAGES` (the home list links every town to its page).
 
 ## Rules (same as the calculator repo)
 - **Don't commit or push before Feather approves.** A push to `main` goes live on GitHub Pages in about 2 minutes.

@@ -62,7 +62,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
       <div>
         <h2>Safe Travels Mobile Repair</h2>
         <p>Mobile auto repair based in Port Monmouth, NJ 07758. We come to your home or work across Monmouth County and nearby towns.</p>
-        <p><a href="/mobile-mechanic-middletown-nj/">Middletown</a> · <a href="/mobile-mechanic-red-bank-nj/">Red Bank</a> · <a href="/mobile-mechanic-holmdel-nj/">Holmdel</a> · <a href="/mobile-mechanic-hazlet-nj/">Hazlet</a> · <a href="/brands/">Brands we work on</a></p>
+        <p><a href="/#where-we-work">Towns we serve</a> · <a href="/brands/">Brands we work on</a></p>
       </div>
       <div>
         <h2>Contact</h2>
@@ -94,6 +94,9 @@ BTNS = f'''<div class="btn-row">
 TOWNS = ('Middletown, Holmdel, Hazlet, Keyport, Keansburg, Matawan, Aberdeen, Atlantic Highlands, Highlands, Rumson, '
          'Red Bank, Shrewsbury, Colts Neck, Tinton Falls, Eatontown, Long Branch, Ocean Township, Asbury Park, Wall, '
          'Marlboro, Old Bridge, Sayreville, Perth Amboy, and Woodbridge')
+def town_url(t): return '/mobile-mechanic-%s-nj/' % t.lower().replace(' ', '-')
+_t = [t.strip() for t in TOWNS.replace(' and ', ' ').split(',')]
+TOWNS_LINKED = ', '.join('<a href="%s">%s</a>' % (town_url(t), t) for t in _t[:-1]) + ', and <a href="%s">%s</a>' % (town_url(_t[-1]), _t[-1])
 
 R_EC = ('Safe Travels was fantastic. They fixed our Volvo XC90 driver’s side visor for $150 less than the dealership and saved us a long wait at the service center. They showed up on time, completed the repair in minutes (less than 15 minutes), and clearly knew exactly what they were doing. Great value, super convenient, and very professional. Highly recommend.',
         'E.C., sun visor replacement on a Volvo XC90')
@@ -155,8 +158,8 @@ f'''<section class="hero">
 <section>
   <div class="wrap grid2">
     <div>
-      <h2>Where we work</h2>
-      <p>We come to you in {TOWNS}.</p>
+      <h2 id="where-we-work">Where we work</h2>
+      <p>We come to you in {TOWNS_LINKED}.</p>
       <p>Don’t see your town? Call or text <a href="{TEL}">(908) 986-3415</a>.</p>
     </div>
     <a class="map" href="{MAPS}"><picture><source type="image/webp" srcset="/assets/service-area-map-490.webp 490w, /assets/service-area-map.webp 920w" sizes="(max-width: 760px) 92vw, 490px"><img src="/assets/service-area-map.jpg" width="920" height="968" loading="lazy" alt="Map of the Safe Travels Mobile Repair service area in New Jersey, from Woodbridge and Perth Amboy south through Sayreville, Old Bridge, Hazlet, Holmdel, Middletown, Red Bank, Rumson, Eatontown and Long Branch to Asbury Park and Wall. Opens the interactive map."></picture></a>
@@ -359,23 +362,38 @@ f'''<section>
 
 
 # ---------------- Town pages ----------------
+# One page per town in "Where we work". Intros use only plain, checkable facts; Feather reviews them before launch.
+# (name, county, intro)
 TOWN_PAGES = [
-  ('middletown', 'Middletown',
-   'Our home base is Port Monmouth, part of Middletown Township, so Middletown is the area we cover most often and usually the easiest to fit in the same day.',
-   'Whether you’re in Port Monmouth, Belford, Leonardo, Lincroft, or near the train station, we work in your driveway or your work parking lot.'),
-  ('red-bank', 'Red Bank',
-   'Red Bank is a short drive from our base in Port Monmouth, well inside our usual service area.',
-   'If you work downtown, we can fix your car in your work lot while you’re at your desk, so you don’t lose a day to the shop.'),
-  ('holmdel', 'Holmdel',
-   'Holmdel is a short drive from our base in Port Monmouth, well inside our usual service area.',
-   'We come to your home or office, so a check engine light or a broken latch doesn’t mean a trip to the shop and a ride back.'),
-  ('hazlet', 'Hazlet',
-   'Hazlet borders Middletown and is one of the closest towns to our base in Port Monmouth.',
-   'Small jobs like bulbs, mirrors and latches are quick to fit in, and bundling a few of them waives the trip fee.'),
+  ('Middletown', 'Monmouth', 'Our home base is Port Monmouth, part of Middletown Township, so Middletown is the area we cover most often. We work in Port Monmouth, Belford, Leonardo, Lincroft and the rest of the township.'),
+  ('Holmdel', 'Monmouth', 'Holmdel borders Middletown and is a short drive from our base in Port Monmouth.'),
+  ('Hazlet', 'Monmouth', 'Hazlet borders Middletown and is one of the closest towns to our base in Port Monmouth.'),
+  ('Keyport', 'Monmouth', 'Keyport is a Bayshore borough a short drive west of our base in Port Monmouth.'),
+  ('Keansburg', 'Monmouth', 'Keansburg is a Bayshore borough right next to Port Monmouth, so it’s one of the closest towns we serve.'),
+  ('Matawan', 'Monmouth', 'Matawan is a short drive west of our base in Port Monmouth, along the Bayshore.'),
+  ('Aberdeen', 'Monmouth', 'Aberdeen Township, including Cliffwood and Strathmore, is a short drive west of our base in Port Monmouth.'),
+  ('Atlantic Highlands', 'Monmouth', 'Atlantic Highlands sits on Sandy Hook Bay, a short drive east of our base in Port Monmouth.'),
+  ('Highlands', 'Monmouth', 'Highlands sits at the foot of the bridge to Sandy Hook, a short drive east of our base in Port Monmouth.'),
+  ('Rumson', 'Monmouth', 'Rumson sits between the Navesink and Shrewsbury rivers, within our usual service area.'),
+  ('Red Bank', 'Monmouth', 'Red Bank is a short drive from our base in Port Monmouth. If you work downtown, we can fix your car in your work lot while you’re at your desk.'),
+  ('Shrewsbury', 'Monmouth', 'Shrewsbury, just south of Red Bank, is within our usual service area.'),
+  ('Colts Neck', 'Monmouth', 'Colts Neck is within our usual service area. On a farm or a long driveway, we come to wherever the car is parked.'),
+  ('Tinton Falls', 'Monmouth', 'Tinton Falls is within our usual service area, at your home or at work.'),
+  ('Eatontown', 'Monmouth', 'Eatontown is within our usual service area, at your home or at work.'),
+  ('Long Branch', 'Monmouth', 'Long Branch, on the oceanfront, is within our service area.'),
+  ('Ocean Township', 'Monmouth', 'Ocean Township, including Oakhurst and Wanamassa, is within our service area.'),
+  ('Asbury Park', 'Monmouth', 'Asbury Park, on the shore, is at the southern edge of our service area.'),
+  ('Wall', 'Monmouth', 'Wall Township is at the southern edge of our service area.'),
+  ('Marlboro', 'Monmouth', 'Marlboro is within our service area, west of Holmdel.'),
+  ('Old Bridge', 'Middlesex', 'Old Bridge, just over the Middlesex County line, is within our service area.'),
+  ('Sayreville', 'Middlesex', 'Sayreville, including Parlin and Morgan, is within our service area in Middlesex County.'),
+  ('Perth Amboy', 'Middlesex', 'Perth Amboy, at the mouth of the Raritan River, is at the northern edge of our service area.'),
+  ('Woodbridge', 'Middlesex', 'Woodbridge Township, including Iselin, Colonia, Fords and Avenel, is at the northern edge of our service area.'),
 ]
-for slug, town, p1, p2 in TOWN_PAGES:
-    page(f'/mobile-mechanic-{slug}-nj/', f'Mobile Mechanic in {town}, NJ | Safe Travels',
-         f'Mobile auto repair at your home or work in {town}, NJ: diagnostics, brakes, inspections and quick fixes. Free phone consult. Call (908) 986-3415.',
+for town, county, p1 in TOWN_PAGES:
+    p2 = 'Distances beyond a 30-minute drive add $1 per mile, round trip; call and we’ll tell you before we book.' if 'edge' in p1 else 'We come to your driveway or work lot, so you don’t lose a day to the shop.'
+    page(town_url(town), f'Mobile Mechanic in {town}, NJ | Safe Travels',
+         f'Mobile auto repair at your home or work in {town}, NJ: diagnostics, brakes, inspections and quick fixes. Free consult. Call (908) 986-3415.',
 f"""<section>
   <div class="wrap narrow">
     <h1>Mobile mechanic in {town}, NJ</h1>
