@@ -61,7 +61,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
     <div class="cols">
       <div>
         <h2>Safe Travels Mobile Repair</h2>
-        <p>Mobile auto repair based in Port Monmouth, NJ 07758. We come to your home or work across Monmouth County.</p>
+        <p>Mobile auto repair based in Port Monmouth, NJ 07758. We come to your home or work across Monmouth County and nearby towns.</p>
       </div>
       <div>
         <h2>Contact</h2>
@@ -109,8 +109,8 @@ def review(r):
     return f'''<div class="card"><blockquote class="review"><p>“{r[0]}”</p><footer>{r[1]}</footer></blockquote></div>'''
 
 # ---------------- Home ----------------
-page('/', 'Mobile Mechanic in Monmouth County, NJ | Safe Travels Mobile Repair',
-     'Mobile auto repair, diagnostics, and maintenance at your home or work in Middletown, Red Bank, and Monmouth County, NJ. Free phone consultation; same-day visits often available.',
+page('/', 'Mobile Mechanic in Monmouth County, NJ | Safe Travels',
+     'Mobile auto repair at your home or work in Monmouth County and nearby towns, NJ. Free phone consultation; same-day visits often available.',
 f'''<section class="hero">
   <div class="wrap">
     <h1>Mobile auto repair in Monmouth County, NJ</h1>
@@ -197,8 +197,8 @@ def svc(title, price, intro, items_title, items, why, extra=''):
       <a class="btn alt" href="/appointments/">Schedule a consultation</a>
     </article>'''
 
-page('/services/', 'Mobile Auto Repair Services in Middletown, NJ | Safe Travels Mobile Repair',
-     'Mobile auto repair at your home or work in Monmouth County, NJ: quick fixes, dash cam installs, engine washes, plus pre-purchase and multipoint inspections.',
+page('/services/', 'Mobile Auto Repair Services, Middletown NJ | Safe Travels',
+     'Mobile auto repair at your home or work in Monmouth County and nearby towns, NJ: quick fixes, inspections, dash cam installs and engine washes.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Services</h1>
@@ -209,7 +209,7 @@ f'''<section>
       <p>Our free tool compares the cost of fixing your car with the cost of trading it in for a newer one, in about two minutes.</p>
       <a class="btn alt" href="https://tools.besafetravels.com/fix-or-trade/" target="_blank" rel="noopener">Fix it, or trade it in?<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
-    {svc('Common Repairs &amp; Quick Fixes', 'Free phone consultation · Small jobs start at a $25 trip fee',
+    {svc('Common Repairs &amp; Quick Fixes', 'Free phone consultation · Repairs $159.99/hr, 1-hour minimum · One small job: $25 trip fee + parts',
          '<p><em>We handle the small jobs that are easy to put off but annoying to live with, done at your home or office, no shop visit needed.</em></p><p>Covers: brakes, belts &amp; pulleys, door latches &amp; handles, sun visors (including a visor light that’s stopped working), hood or tailgate that won’t stay open, headlights, taillights, side mirrors, license plate lights, interior lights, and other bulb replacements.</p>',
          'How pricing works',
          ['<strong>Free phone consultation:</strong> tell us what’s going on, and we’ll give you our best read and a ballpark price.',
@@ -282,7 +282,7 @@ f'''<section>
 </section>''', 'Reviews')
 
 # ---------------- Appointments ----------------
-page('/appointments/', 'Schedule a Mobile Mechanic Visit | Safe Travels Mobile Repair',
+page('/appointments/', 'Book a Mobile Mechanic Visit | Safe Travels Mobile Repair',
      'Book a phone consult or on-site repair with Safe Travels Mobile Repair, serving Middletown, NJ and surrounding Monmouth County towns.',
 f'''<section>
   <div class="wrap narrow">
@@ -335,8 +335,8 @@ f'''<section>
 </script>''', 'Contact')
 
 # ---------------- About ----------------
-page('/about/', 'About Safe Travels Mobile Repair | Middletown, NJ Mobile Mechanic',
-     'Family-owned mobile auto repair founded by Feather Waters, a technician with 15+ years’ experience. Serving Middletown, Red Bank, Holmdel & Hazlet, NJ.',
+page('/about/', 'About Us | Safe Travels Mobile Repair, Middletown NJ',
+     'Family-owned mobile auto repair founded by Feather Waters, a technician with 15+ years’ experience, serving Middletown, Red Bank, Holmdel and Hazlet, NJ.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Who we are</h1>
@@ -356,8 +356,8 @@ f'''<section>
 
 # ---------------- FAQ ----------------
 def q(qq, a): return f'<details><summary>{qq}</summary><div class="answer"><p>{a}</p></div></details>'
-page('/faq/', 'FAQ: Pricing, Service Area & Mobile Repair | Safe Travels Mobile Repair',
-     'How mobile repair pricing works at Safe Travels: free phone consultations, on-site diagnostics, small-job fees, service area around Middletown, NJ, and hours.',
+page('/faq/', 'FAQ: Pricing & Service Area | Safe Travels Mobile Repair',
+     'How mobile repair pricing works at Safe Travels: free phone consults, on-site diagnostics, small-job fees, service area and hours.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Frequently asked questions</h1>
