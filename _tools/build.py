@@ -209,14 +209,14 @@ f'''<section>
       <p>Our free tool compares the cost of fixing your car with the cost of trading it in for a newer one, in about two minutes.</p>
       <a class="btn alt" href="https://tools.besafetravels.com/fix-or-trade/" target="_blank" rel="noopener">Fix it, or trade it in?<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
-    {svc('Common Repairs &amp; Quick Fixes', 'Free phone consultation · Repairs $159.99/hr, 1-hour minimum · One small job: $25 trip fee + parts',
+    {svc('Common Repairs &amp; Quick Fixes', 'Free phone consult · $159.99/hr (1-hour min.) · Small jobs from $25 + parts',
          '<p><em>We handle the small jobs that are easy to put off but annoying to live with, done at your home or office, no shop visit needed.</em></p><p>Covers: brakes, belts &amp; pulleys, door latches &amp; handles, sun visors (including a visor light that’s stopped working), hood or tailgate that won’t stay open, headlights, taillights, side mirrors, license plate lights, interior lights, and other bulb replacements.</p>',
          'How pricing works',
          ['<strong>Free phone consultation:</strong> tell us what’s going on, and we’ll give you our best read and a ballpark price.',
           '<strong>One small job</strong> (a bulb, a mirror, a plate light): $25 trip fee, plus parts and mileage ($1 per mile, round trip, from Port Monmouth).',
           '<strong>Several small jobs:</strong> bundle them to reach the one-hour minimum ($159.99), and we waive the trip fee and mileage.',
           '<strong>Repairs and on-site diagnostics</strong> (like brakes or belts): $159.99 per hour, one-hour minimum. Diagnostic time is credited toward the repair if you go ahead.'],
-         ['Small jobs handled quickly, without a shop appointment', 'Genuine parts and proper diagnosis, not guesswork', 'One trip covers multiple small fixes at once'])}
+         ['Small jobs handled quickly, without a shop appointment', 'Quality parts and a clear diagnosis before any work', 'One trip covers multiple small fixes at once'])}
     {svc('Pre-Purchase Inspection', '$59.99',
          '<p class="small">Trip fee and mileage may apply for locations more than a 30-minute drive away.</p><p>Buying a used car? We meet you where the car is, at the seller’s driveway or the lot, and check it over before you commit, so you know what you’re buying.</p>',
          'What we check',
