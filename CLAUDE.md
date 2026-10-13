@@ -11,7 +11,7 @@ The coded version of besafetravels.com for **Safe Travels Mobile Repair** (Be Sa
 ```
 _tools/build.py          page generator: all page text, header, footer and nav live here
 index.html               Home
-services/ calculator/ reviews/ appointments/ contact/ about/ faq/ brands/   one index.html each
+services/ calculator/ reviews/ appointments/ contact/ about/ faq/ cars-we-work-on/ our-tools/   one index.html each
 mobile-mechanic-<town>-nj/  one page per town in Home's "Where we work" list (TOWNS + TOWN_PAGES in build.py)
 404.html  robots.txt
 assets/site.css          all styles (brand tokens at the top)
@@ -27,7 +27,8 @@ No other build step; GitHub Pages serves the files as they are.
 
 ## Needs Feather's review before launch
 - **Town page intros** (`TOWN_PAGES` in `build.py`, 24 towns): each has one or two lines of local fact (borders, neighborhoods, rivers). Confirm each is right and that she wants to be listed there. Towns marked "edge of our service area" (Asbury Park, Wall, Perth Amboy, Woodbridge) say a $1/mile round-trip charge may apply beyond 30 minutes; check which towns are really beyond 30 minutes.
-- **Brands page** (`/brands/`): make list copied from the calculator's `BRAND_TIER`/`DOMESTIC_MAKES` (Tools repo). Keep the two in sync.
+- **Cars we work on** (`/cars-we-work-on/`): make list copied from the calculator's `BRAND_TIER`/`DOMESTIC_MAKES` (Tools repo). Keep the two in sync.
+- **Our Tools** (`/our-tools/`): tool and factory-software brands from the calculator repo's `docs/brands-page-draft.md` (to-do 16). Names only: logos need each brand's written OK.
 - Adding a town: add it to both `TOWNS` and `TOWN_PAGES` (the home list links every town to its page).
 
 ## Rules (same as the calculator repo)

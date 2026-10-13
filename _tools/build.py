@@ -62,7 +62,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
       <div>
         <h2>Safe Travels Mobile Repair</h2>
         <p>Mobile auto repair based in Port Monmouth, NJ 07758. We come to your home or work across Monmouth County and nearby towns.</p>
-        <p><a href="/#where-we-work">Towns we serve</a> · <a href="/brands/">Brands we work on</a></p>
+        <p><a href="/#where-we-work">Towns we serve</a> · <a href="/cars-we-work-on/">Cars we work on</a> · <a href="/our-tools/">Our tools</a></p>
       </div>
       <div>
         <h2>Contact</h2>
@@ -357,7 +357,7 @@ f'''<section>
       <li>Mobile safety inspections</li>
       <li>Car diagnostics</li>
       <li>Dash cam and backup camera installation</li>
-      <li><a href="/brands/">Brands we work on</a></li>
+      <li><a href="/cars-we-work-on/">Cars we work on</a></li>
     </ul>
     <div class="btn-row"><a class="btn" href="/contact/">Contact us</a><a class="btn alt" href="{CALC}">Get my estimate</a></div>
   </div>
@@ -410,20 +410,20 @@ f"""<section>
       <li>Bulbs, mirrors, latches, sun visors and other quick fixes</li>
       <li>Dash cam, backup camera and tow hitch installs</li>
     </ul>
-    <p><a href="/services/">See all services and prices</a> · <a href="/brands/">Brands we work on</a></p>
+    <p><a href="/services/">See all services and prices</a> · <a href="/cars-we-work-on/">Cars we work on</a></p>
     <h2>How pricing works</h2>
     <p>The phone consultation is free. Repairs and on-site diagnostics are $159.99 per hour with a one-hour minimum, plus parts, and diagnostic time is credited toward the repair. You get a written estimate before any work begins.</p>
     {BTNS}
   </div>
 </section>""")
 
-# ---------------- Brands ----------------
+# ---------------- Cars we work on (makes; keep in sync with the calculator's BRAND_TIER) ----------------
 def makes(*m): return ', '.join(m)
-page('/brands/', 'Car Brands We Work On | Safe Travels Mobile Repair',
+page('/cars-we-work-on/', 'Cars We Work On: Makes & Years | Safe Travels',
      'Mobile repair for domestic, Japanese, Korean and European cars, model year 1996 and newer, plus Maserati. See which makes we service in Monmouth County.',
 f"""<section>
   <div class="wrap narrow">
-    <h1>Brands we work on</h1>
+    <h1>Cars we work on</h1>
     <p class="lede">We work on most gas and hybrid cars, SUVs, trucks and vans from model year 1996 on, domestic and imported.</p>
     <h2>American</h2>
     <p>{makes('Buick','Cadillac','Chevrolet','Chrysler','Dodge','Ford','GMC','Hummer','Jeep','Lincoln','Mercury','Oldsmobile','Plymouth','Pontiac','Ram','Saturn')}</p>
@@ -440,6 +440,42 @@ f"""<section>
     </ul>
     <p>Not sure about your car? Call or text <a href="{TEL}">(908) 986-3415</a>.</p>
     {BTNS}
+  </div>
+</section>""")
+
+# ---------------- Our Tools (to-do 16; copy from calculator repo docs/brands-page-draft.md, names only, no logos) ----------------
+page('/our-tools/', 'Professional Tools & Factory Diagnostics | Safe Travels',
+     'Safe Travels Mobile Repair brings shop-grade tools, professional scan tools and factory service software to your driveway in Monmouth County, NJ.',
+f"""<section>
+  <div class="wrap narrow">
+    <h1>The tools we bring to your driveway</h1>
+    <p class="lede">A mobile mechanic is only as good as the tools in the van. We carry the same professional brands you’d find in a well-equipped shop, plus the diagnostic software that lets us read your car the way its maker intended.</p>
+    <h2>Hand tools and storage</h2>
+    <p>Snap-on · Matco · Gearwrench · OTC · Knipex · Craftsman · Kobalt · Husky</p>
+    <h2>Power tools</h2>
+    <p>Milwaukee · DEWALT</p>
+    <h2>Scan tools and diagnostics</h2>
+    <p>Autel · Topdon · TEXA · Nexiq</p>
+    <p>From a check engine light to a module that needs programming, professional scan tools let us find the cause instead of guessing, so you pay for the repair you need.</p>
+    <h2>Factory service information and software</h2>
+    <p>When a job needs the manufacturer’s own procedures or software, we use it:</p>
+    <ul class="checks">
+      <li><strong>BMW Group:</strong> BMW, BMW Motorrad and MINI</li>
+      <li><strong>Audi:</strong> erWin and ODIS</li>
+      <li><strong>Volkswagen:</strong> erWin and ODIS</li>
+      <li><strong>General Motors Europe:</strong> Chevrolet, Opel, Vauxhall and GM Korea vehicles</li>
+      <li><strong>Honda</strong></li>
+      <li><strong>Jaguar</strong></li>
+      <li><strong>Maserati</strong> (TechInfo)</li>
+      <li><strong>Mercedes-Benz</strong></li>
+      <li><strong>Saab</strong></li>
+    </ul>
+    <h2>Secure Gateway access</h2>
+    <p>Many newer vehicles lock their diagnostic port behind a security gateway. We’re registered with <strong>AutoAuth</strong>, so we can unlock it and work on those vehicles properly.</p>
+    <h2>And more</h2>
+    <p>This list grows as we take on new jobs. Not sure we can work on your vehicle? See <a href="/cars-we-work-on/">Cars we work on</a>, or call us at <a href="{TEL}">(908) 986-3415</a> and ask.</p>
+    {BTNS}
+    <p class="small">Brand names are trademarks of their respective owners. Their use here describes the tools and software we use and doesn’t imply endorsement or sponsorship.</p>
   </div>
 </section>""")
 
