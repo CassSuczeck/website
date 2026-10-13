@@ -75,7 +75,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
         <p>Visits: 8:30am to 5pm, Monday to Saturday</p>
       </div>
     </div>
-    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved.</p>
+    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/privacy/">Privacy policy</a> · <a href="/sms-terms/">Text message terms</a></p>
   </div>
 </footer>
 </body>
@@ -99,7 +99,7 @@ _t = [t.strip() for t in TOWNS.replace(' and ', ' ').split(',')]
 TOWNS_LINKED = ', '.join('<a href="%s">%s</a>' % (town_url(t), t) for t in _t[:-1]) + ', and <a href="%s">%s</a>' % (town_url(_t[-1]), _t[-1])
 
 R_EC = ('Safe Travels was fantastic. They fixed our Volvo XC90 driver’s side visor for $150 less than the dealership and saved us a long wait at the service center. They showed up on time, completed the repair in minutes (less than 15 minutes), and clearly knew exactly what they were doing. Great value, super convenient, and very professional. Highly recommend.',
-        'E.C., sun visor replacement on a Volvo XC90')
+        'E.C. (Google), sun visor replacement on a Volvo XC90')
 R_CW = ('They came to our work location and we didn’t have to drop off the car. Their estimate was quite reasonable, especially given the age of the vehicle and number of issues we were previously enduring. They kept us informed every step of the way. Our car is now running better than it had in almost a decade.',
         'C.W. (Nextdoor), multiple repairs on a Scion xB Release Series 2.0')
 R_CH = ('What exceptional service I was provided. So convenient I didn’t have to drive anywhere to leave my vehicle and arrange a ride. Service was provided right outside. Neat, clean, efficient and cost friendly.',
@@ -107,7 +107,7 @@ R_CH = ('What exceptional service I was provided. So convenient I didn’t have 
 R_DP = ('They did a wonderful job, very courteous and prompt. I loved the way they explained what work was being done and why. Thank you!',
         'D.P. (Nextdoor), tow hitch install on a Chevy Bolt EV')
 R_HC = ('I didn’t know it was possible! I always wanted a dash cam but I thought they all required the 12v jack--since I always have a phone charger plugged in, I figured that was the end of the story. But Feather was able to install a dash cam so that it’s hard-wired into the car’s electrical supply, with all the wires hidden neatly behind the trim as if it came from the factory like that. The dash cam just WORKS while I’m driving, and I don’t have to do a thing. A+, 10/10, would recommend to anyone!',
-        'Nextbase 622GW dash cam install on a 2019 Honda Civic hatchback')
+        'Feather’s spouse, Nextbase 622GW dash cam install on a 2019 Honda Civic hatchback')
 
 def review(r):
     return f'''<div class="card"><blockquote class="review"><p>“{r[0]}”</p><footer>{r[1]}</footer></blockquote></div>'''
@@ -149,7 +149,7 @@ f'''<section class="hero">
       <ul class="checks">
         <li><strong>Free phone consultation:</strong> tell us what’s going on, and we’ll give you our best read and a ballpark price.</li>
         <li><strong>Repairs and on-site diagnostics:</strong> $159.99 per hour, one-hour minimum. Diagnostic time is credited toward the repair if you go ahead.</li>
-        <li><strong>Small jobs</strong> (a bulb, a mirror): $25 trip fee plus parts and mileage, or bundle a few to reach the one-hour minimum and we waive the trip fee and mileage.</li>
+        <li><strong>Small jobs</strong> (a bulb, a mirror): $25 trip fee plus parts and mileage ($1 per mile, round trip, from Port Monmouth), or bundle a few to reach the one-hour minimum and we waive the trip fee and mileage.</li>
       </ul>
       <p><a href="{CALC}">Get a ballpark price for your car</a> · <a href="/faq/">Pricing questions</a></p>
     </div>
@@ -320,6 +320,7 @@ f'''<section>
       <div class="field"><label for="c-msg">What’s going on with the car? (required)</label><textarea id="c-msg" name="message" placeholder="e.g. grinding noise when braking, check engine light on" required></textarea></div>
       <div class="trap" aria-hidden="true"><label for="c-web">Leave this empty</label><input id="c-web" name="website" tabindex="-1" autocomplete="off"></div>
       <div id="c-status" role="status" aria-live="polite"></div>
+      <p class="small">By sending this, you agree Safe Travels may call or text you about your request. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy/">privacy policy</a> and <a href="/sms-terms/">text message terms</a>.</p>
       <button class="btn" type="submit">Send message</button>
     </form>
   </div>
@@ -504,6 +505,39 @@ f'''<section>
     {q('How do I book?', f'<a href="/appointments/">Schedule a call</a>, <a href="{SMS}">text</a>, or call us at <a href="{TEL}">(908) 986-3415</a>.')}
   </div>
 </section>''', 'FAQ')
+
+# DRAFT (compliance check, Oct 13 2026): owner and, ideally, an NJ attorney review wording before launch.
+page('/privacy/', 'Privacy policy | Safe Travels Mobile Repair', 'How Safe Travels Mobile Repair collects and uses your information.',
+f'''<section><div class="wrap narrow">
+<h1>Privacy policy</h1>
+<p class="lede">We collect only what we need to answer you and fix your car. We never sell your information.</p>
+<h2>What we collect</h2>
+<ul>
+<li><strong>Contact form and estimate calculator:</strong> your name, phone, email (optional), vehicle, town, and what’s going on with the car.</li>
+<li><strong>Booking:</strong> what you enter when you schedule a call through Calendly.</li>
+<li><strong>Calls and texts:</strong> your number and what you tell us.</li>
+</ul>
+<p>We don’t collect Social Security numbers, driver’s license numbers, or card numbers on this website.</p>
+<h2>How we use it</h2>
+<p>To answer your request, give you a price, schedule and do the work, and follow up about that work. We don’t send marketing texts.</p>
+<h2>Who else handles it</h2>
+<p>A few services help us run the site: Calendly (booking), Google (fonts on this site and our email and form tools), and Google Voice (our business phone line, for calls and texts). They process your information for us, not for their own marketing. We never sell or share your mobile number or text consent for anyone’s marketing.</p>
+<h2>Your choices</h2>
+<p>To see, correct, or delete what we have about you, call or text <a href="{TEL}">(908) 986-3415</a> or email <a href="mailto:info@besafetravels.com">info@besafetravels.com</a>. Reply STOP to any text to stop texts.</p>
+<p class="small">Be Safe Travels LLC, Port Monmouth, NJ 07758. Last updated October 2026.</p>
+</div></section>''')
+page('/sms-terms/', 'Text message terms | Safe Travels Mobile Repair', 'Terms for text messages from Safe Travels Mobile Repair.',
+f'''<section><div class="wrap narrow">
+<h1>Text message terms</h1>
+<p class="lede">When you text us or give us your number on a form, we may call or text you about your request.</p>
+<ul>
+<li><strong>What we send:</strong> replies about your request, estimates, scheduling, arrival times, and follow-up on the work. No marketing texts.</li>
+<li><strong>How often:</strong> it varies with your job, usually a few messages.</li>
+<li><strong>Cost:</strong> message and data rates may apply.</li>
+<li><strong>Stop:</strong> reply STOP at any time. Reply HELP for help, or call <a href="{TEL}">(908) 986-3415</a>.</li>
+<li><strong>Your number:</strong> we never sell or share your mobile number or text consent for marketing. See our <a href="/privacy/">privacy policy</a>.</li>
+</ul>
+</div></section>''')
 
 open(os.path.join(OUT, 'robots.txt'), 'w').write('# Preview: keep search engines out until launch\nUser-agent: *\nDisallow: /\n')
 page('/_404/', 'Page not found | Safe Travels Mobile Repair', 'Page not found.',
