@@ -348,14 +348,14 @@ f'''<section>
 
 # ---------------- About ----------------
 page('/about/', 'About Us | Safe Travels Mobile Repair, Middletown NJ',
-     'Family-owned mobile auto repair founded by Feather Waters, a technician with 15+ years’ experience, serving Middletown, Red Bank, Holmdel and Hazlet, NJ.',
+     'Family-owned mobile auto repair founded by Feather Waters, a technician with 16 years’ experience, serving Middletown, Red Bank, Holmdel and Hazlet, NJ.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Who we are</h1>
     <figure class="founder"><picture><source type="image/webp" srcset="/assets/feather-480.webp 480w, /assets/feather-800.webp 800w" sizes="(max-width: 760px) 92vw, 320px"><img src="/assets/feather.jpg" width="800" height="800" alt="Feather Waters, founder of Safe Travels Mobile Repair, in a Safe Travels work shirt"></picture><figcaption>Feather Waters, founder and technician</figcaption></figure>
     <p class="lede">Safe Travels Mobile Repair is a family-owned mobile auto repair service based in Middletown, NJ, that brings expert and honest auto care to you, on your schedule, so your car and life stay on track.</p>
     <p>We proudly serve drivers within about 30 minutes of Middletown, including Red Bank, Holmdel, and Hazlet.</p>
-    <p>Founded by Feather Waters, a seasoned technician with over 15 years of experience, we specialize in on-site car diagnostics, vehicle inspections, and mobile car repairs that fit your schedule and lifestyle. Feather’s expertise spans from passenger cars to heavy-duty equipment, like semis and excavators. Whether you need a pre-purchase car inspection, help with a check engine light, or a solution for slow-moving windows or electrical issues, she’ll get to the root of the problem and explain it clearly before any work begins.</p>
+    <p>Founded by Feather Waters, a seasoned technician with 16 years of experience, we specialize in on-site car diagnostics, vehicle inspections, and mobile car repairs that fit your schedule and lifestyle. Feather’s expertise spans from passenger cars to heavy-duty equipment, like semis and excavators. Whether you need a pre-purchase car inspection, help with a check engine light, or a solution for slow-moving windows or electrical issues, she’ll get to the root of the problem and explain it clearly before any work begins.</p>
     <p>Because Feather knows how disruptive car trouble can be, Safe Travels returns every voicemail the same day on business days and, in many cases, can schedule a diagnostic visit the same day.</p>
     <ul class="checks">
       <li>Serving 07758 and surrounding areas</li>
