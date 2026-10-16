@@ -118,6 +118,7 @@ page('/', 'Mobile Mechanic in Monmouth County, NJ | Safe Travels',
 f'''<section class="hero">
   <div class="wrap">
     <h1>Mobile auto repair in Monmouth County, NJ</h1>
+    <p class="tagline">Keeping Your Car on the Road, Safely and for Longer.</p>
     <p class="lede">We come to your home or work. No shop visit, no towing, no waiting room.</p>
     {BTNS}
     <p class="small">Prefer to text? <a href="{SMS}">(908) 986-3415</a></p>
@@ -142,6 +143,7 @@ f'''<section class="hero">
         <li>Dash cams, tow hitches, and other accessories</li>
         <li>Pre-purchase and multipoint inspections</li>
       </ul>
+      <p class="small">We don’t do NJ MVC state inspections, engine teardowns, or transmission rebuilds; for those, we’ll point you to a shop that does.</p>
       <p><a href="/services/">See all services</a></p>
     </div>
     <div>
@@ -254,6 +256,8 @@ f'''<section>
          'We install',
          ['Dash cams (hardwired, no cigarette-lighter plugs)', 'Backup and rear cameras, rearview screens', 'Winches', 'LED lights and rock lights', 'Custom electrical installs for other accessories'],
          ['Hardwired for a clean look, with no visible cords or loose wiring', 'Installed by a technician who understands your vehicle’s electrical system, not just the accessory', 'One trip covers multiple add-ons at once'])}
+    <h2>What we don’t do</h2>
+    <p>We don’t do NJ MVC state inspections, engine teardowns, or transmission rebuilds; for those, we’ll point you to a shop that does. Not sure where your job fits? Call us at <a href="{TEL}">(908) 986-3415</a> and ask.</p>
   </div>
 </section>''', 'Services')
 
@@ -344,14 +348,14 @@ f'''<section>
 
 # ---------------- About ----------------
 page('/about/', 'About Us | Safe Travels Mobile Repair, Middletown NJ',
-     'Family-owned mobile auto repair founded by Feather Waters, a technician with 15+ years’ experience, serving Middletown, Red Bank, Holmdel and Hazlet, NJ.',
+     'Family-owned mobile auto repair founded by Feather Waters, a technician with 16 years’ experience, serving Middletown, Red Bank, Holmdel and Hazlet, NJ.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Who we are</h1>
     <figure class="founder"><picture><source type="image/webp" srcset="/assets/feather-480.webp 480w, /assets/feather-800.webp 800w" sizes="(max-width: 760px) 92vw, 320px"><img src="/assets/feather.jpg" width="800" height="800" alt="Feather Waters, founder of Safe Travels Mobile Repair, in a Safe Travels work shirt"></picture><figcaption>Feather Waters, founder and technician</figcaption></figure>
     <p class="lede">Safe Travels Mobile Repair is a family-owned mobile auto repair service based in Middletown, NJ, that brings expert and honest auto care to you, on your schedule, so your car and life stay on track.</p>
     <p>We proudly serve drivers within about 30 minutes of Middletown, including Red Bank, Holmdel, and Hazlet.</p>
-    <p>Founded by Feather Waters, a seasoned technician with over 15 years of experience, we specialize in on-site car diagnostics, vehicle inspections, and mobile car repairs that fit your schedule and lifestyle. Feather’s expertise spans from passenger cars to heavy-duty equipment, like semis and excavators. Whether you need a pre-purchase car inspection, help with a check engine light, or a solution for slow-moving windows or electrical issues, she’ll get to the root of the problem and explain it clearly before any work begins.</p>
+    <p>Founded by Feather Waters, a seasoned technician with 16 years of experience, we specialize in on-site car diagnostics, vehicle inspections, and mobile car repairs that fit your schedule and lifestyle. Feather’s expertise spans from passenger cars to heavy-duty equipment, like semis and excavators. Whether you need a pre-purchase car inspection, help with a check engine light, or a solution for slow-moving windows or electrical issues, she’ll get to the root of the problem and explain it clearly before any work begins.</p>
     <p>Because Feather knows how disruptive car trouble can be, Safe Travels returns every voicemail the same day on business days and, in many cases, can schedule a diagnostic visit the same day.</p>
     <ul class="checks">
       <li>Serving 07758 and surrounding areas</li>
@@ -450,13 +454,13 @@ page('/our-tools/', 'Professional Tools & Factory Diagnostics | Safe Travels',
 f"""<section>
   <div class="wrap narrow">
     <h1>The tools we bring to your driveway</h1>
-    <p class="lede">A mobile mechanic is only as good as the tools in the van. We carry the same professional brands you’d find in a well-equipped shop, plus the diagnostic software that lets us read your car the way its maker intended.</p>
+    <p class="lede">Sixteen years of fixing lawn mowers, generators, forklifts, construction equipment, and trucks and cars of every age teaches you what works. That’s how we stocked the van: the same professional brands you’d find in a well-equipped shop, plus the diagnostic software that lets us read your vehicle the way its maker intended.</p>
     <h2>Hand tools and storage</h2>
     <p>Snap-on · Matco · Gearwrench · OTC · Knipex · Craftsman · Kobalt · Husky</p>
     <h2>Power tools</h2>
     <p>Milwaukee · DEWALT</p>
     <h2>Scan tools and diagnostics</h2>
-    <p>Autel · Topdon · TEXA · Nexiq</p>
+    <p>Autel · Topdon · TEXA · Nexiq · Zurich</p>
     <p>From a check engine light to a module that needs programming, professional scan tools let us find the cause instead of guessing, so you pay for the repair you need.</p>
     <h2>Factory service information and software</h2>
     <p>When a job needs the manufacturer’s own procedures or software, we use it:</p>
@@ -471,6 +475,9 @@ f"""<section>
       <li><strong>Mercedes-Benz</strong></li>
       <li><strong>Saab</strong></li>
     </ul>
+    <h2>Repair information and shop software</h2>
+    <p>ALLDATA · Carfax</p>
+    <p>We look up the manufacturer’s repair procedures and specifications for your exact vehicle. Most repairs are also added to your car’s Carfax service history; pre-purchase inspections and minor work usually aren’t.</p>
     <h2>Secure Gateway access</h2>
     <p>Many newer vehicles lock their diagnostic port behind a security gateway. We’re registered with <strong>AutoAuth</strong>, so we can unlock it and work on those vehicles properly.</p>
     <h2>And more</h2>
@@ -502,6 +509,7 @@ f'''<section>
     {q('Do you work on electric vehicles?', 'Only some jobs: tow hitch installs, accessory installs, and, in some cases, brakes, suspension, and interior work. For anything else, call us, and we’ll refer you to a shop that does.')}
     {q('Do you work on older cars?', 'Yes, any gas or hybrid vehicle from model year 1996 on, when standard diagnostic systems (OBD-II) arrived. For cars older than 1996, call us, and we’ll refer you to a shop that specializes in them.')}
     {q('Do you work on exotic cars?', 'Some exotic cars need a specialty shop; for example, Ferrari, Lamborghini, Rolls-Royce, and Maserati’s MC20. Call us, and we’ll refer you to a specialty shop.')}
+    {q('Is there anything you don’t do?', 'Yes. We don’t do NJ MVC state inspections, engine teardowns, or transmission rebuilds. Call us, and we’ll point you to a shop that does.')}
     {q('How do I book?', f'<a href="/appointments/">Schedule a call</a>, <a href="{SMS}">text</a>, or call us at <a href="{TEL}">(908) 986-3415</a>.')}
   </div>
 </section>''', 'FAQ')
