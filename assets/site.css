@@ -62,6 +62,7 @@ section.tint{ background:var(--bluegray); }
 section.hero{ background:var(--sky); padding:56px 0 60px; }
 section.hero h1, section.hero .lede{ color:var(--white); }
 section.hero .lede{ color:var(--navy); font-weight:600; }
+section.hero .tagline{ font-family:Montserrat, "Montserrat Fallback", Arial, sans-serif; font-weight:700; font-size:clamp(19px,2.6vw,24px); color:var(--navy); margin:-4px 0 10px; }
 section.hero h1{ color:var(--navy); }
 section.hero .small, section.hero .small a{ color:var(--navy); }
 .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }

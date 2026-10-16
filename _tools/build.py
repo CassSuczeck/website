@@ -118,6 +118,7 @@ page('/', 'Mobile Mechanic in Monmouth County, NJ | Safe Travels',
 f'''<section class="hero">
   <div class="wrap">
     <h1>Mobile auto repair in Monmouth County, NJ</h1>
+    <p class="tagline">Keeping Your Car on the Road, Safely and for Longer.</p>
     <p class="lede">We come to your home or work. No shop visit, no towing, no waiting room.</p>
     {BTNS}
     <p class="small">Prefer to text? <a href="{SMS}">(908) 986-3415</a></p>
@@ -142,6 +143,7 @@ f'''<section class="hero">
         <li>Dash cams, tow hitches, and other accessories</li>
         <li>Pre-purchase and multipoint inspections</li>
       </ul>
+      <p class="small">We don’t do NJ MVC state inspections, engine teardowns, or transmission rebuilds; for those, we’ll point you to a shop that does.</p>
       <p><a href="/services/">See all services</a></p>
     </div>
     <div>
@@ -254,6 +256,8 @@ f'''<section>
          'We install',
          ['Dash cams (hardwired, no cigarette-lighter plugs)', 'Backup and rear cameras, rearview screens', 'Winches', 'LED lights and rock lights', 'Custom electrical installs for other accessories'],
          ['Hardwired for a clean look, with no visible cords or loose wiring', 'Installed by a technician who understands your vehicle’s electrical system, not just the accessory', 'One trip covers multiple add-ons at once'])}
+    <h2>What we don’t do</h2>
+    <p>We don’t do NJ MVC state inspections, engine teardowns, or transmission rebuilds; for those, we’ll point you to a shop that does. Not sure where your job fits? Call us at <a href="{TEL}">(908) 986-3415</a> and ask.</p>
   </div>
 </section>''', 'Services')
 
@@ -450,13 +454,13 @@ page('/our-tools/', 'Professional Tools & Factory Diagnostics | Safe Travels',
 f"""<section>
   <div class="wrap narrow">
     <h1>The tools we bring to your driveway</h1>
-    <p class="lede">A mobile mechanic is only as good as the tools in the van. We carry the same professional brands you’d find in a well-equipped shop, plus the diagnostic software that lets us read your car the way its maker intended.</p>
+    <p class="lede">Sixteen years of fixing lawn mowers, generators, forklifts, construction equipment, and trucks and cars of every age teaches you what works. That’s how we stocked the van: the same professional brands you’d find in a well-equipped shop, plus the diagnostic software that lets us read your vehicle the way its maker intended.</p>
     <h2>Hand tools and storage</h2>
     <p>Snap-on · Matco · Gearwrench · OTC · Knipex · Craftsman · Kobalt · Husky</p>
     <h2>Power tools</h2>
     <p>Milwaukee · DEWALT</p>
     <h2>Scan tools and diagnostics</h2>
-    <p>Autel · Topdon · TEXA · Nexiq</p>
+    <p>Autel · Topdon · TEXA · Nexiq · Zurich</p>
     <p>From a check engine light to a module that needs programming, professional scan tools let us find the cause instead of guessing, so you pay for the repair you need.</p>
     <h2>Factory service information and software</h2>
     <p>When a job needs the manufacturer’s own procedures or software, we use it:</p>
@@ -471,6 +475,9 @@ f"""<section>
       <li><strong>Mercedes-Benz</strong></li>
       <li><strong>Saab</strong></li>
     </ul>
+    <h2>Repair information and shop software</h2>
+    <p>ALLDATA · Carfax</p>
+    <p>We look up the manufacturer’s repair procedures and specifications for your exact vehicle. Most repairs are also added to your car’s Carfax service history; pre-purchase inspections and minor work usually aren’t.</p>
     <h2>Secure Gateway access</h2>
     <p>Many newer vehicles lock their diagnostic port behind a security gateway. We’re registered with <strong>AutoAuth</strong>, so we can unlock it and work on those vehicles properly.</p>
     <h2>And more</h2>
@@ -502,6 +509,7 @@ f'''<section>
     {q('Do you work on electric vehicles?', 'Only some jobs: tow hitch installs, accessory installs, and, in some cases, brakes, suspension, and interior work. For anything else, call us, and we’ll refer you to a shop that does.')}
     {q('Do you work on older cars?', 'Yes, any gas or hybrid vehicle from model year 1996 on, when standard diagnostic systems (OBD-II) arrived. For cars older than 1996, call us, and we’ll refer you to a shop that specializes in them.')}
     {q('Do you work on exotic cars?', 'Some exotic cars need a specialty shop; for example, Ferrari, Lamborghini, Rolls-Royce, and Maserati’s MC20. Call us, and we’ll refer you to a specialty shop.')}
+    {q('Is there anything you don’t do?', 'Yes. We don’t do NJ MVC state inspections, engine teardowns, or transmission rebuilds. Call us, and we’ll point you to a shop that does.')}
     {q('How do I book?', f'<a href="/appointments/">Schedule a call</a>, <a href="{SMS}">text</a>, or call us at <a href="{TEL}">(908) 986-3415</a>.')}
   </div>
 </section>''', 'FAQ')
