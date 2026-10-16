@@ -138,7 +138,7 @@ f'''<section class="hero">
         <li>Batteries, alternators, and charging problems</li>
         <li>Check engine lights and no-starts</li>
         <li>Belts, pulleys, and suspension</li>
-        <li>Small fixes: bulbs, sun visors, mirrors, door latches</li>
+        <li>Small fixes: bulbs, mirrors, door latches, plus sun visor repair</li>
         <li>Dash cams, tow hitches, and other accessories</li>
         <li>Pre-purchase and multipoint inspections</li>
       </ul>
@@ -214,7 +214,7 @@ f'''<section>
       <a class="btn alt" href="https://tools.besafetravels.com/fix-or-trade/" target="_blank" rel="noopener">Fix it, or trade it in?<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
     {svc('Common Repairs &amp; Quick Fixes', 'Free phone consult · $159.99/hr (1-hour min.) · Small jobs from $25 + parts',
-         '<p><em>We handle the small jobs that are easy to put off but annoying to live with, done at your home or office, no shop visit needed.</em></p><p>Covers: brakes, belts &amp; pulleys, door latches &amp; handles, sun visors (including a visor light that’s stopped working), hood or tailgate that won’t stay open, headlights, taillights, side mirrors, license plate lights, interior lights, and other bulb replacements.</p>',
+         '<p><em>We handle the small jobs that are easy to put off but annoying to live with, done at your home or office, no shop visit needed.</em></p><p>Covers: brakes, belts &amp; pulleys, door latches &amp; handles, hood or tailgate that won’t stay open, headlights, taillights, side mirrors, license plate lights, interior lights, and other bulb replacements.</p><p><strong>Sun visor repair</strong> (flapping, won’t stay up, or a visor light that’s stopped working) is priced on its own: about $160 to $500, part included.</p>',
          'How pricing works',
          ['<strong>Free phone consultation:</strong> tell us what’s going on, and we’ll give you our best read and a ballpark price.',
           '<strong>One small job</strong> (a bulb, a mirror, a plate light): $25 trip fee, plus parts and mileage ($1 per mile, round trip, from Port Monmouth).',
@@ -408,7 +408,7 @@ f"""<section>
       <li>Check engine lights and on-site diagnostics</li>
       <li>Brake pads, rotors and full brake jobs</li>
       <li>Pre-purchase inspections ($59.99) and multipoint inspections ($99.99)</li>
-      <li>Bulbs, mirrors, latches, sun visors and other quick fixes</li>
+      <li>Bulbs, mirrors, latches and other quick fixes, plus sun visor repair</li>
       <li>Dash cam, backup camera and tow hitch installs</li>
     </ul>
     <p><a href="/services/">See all services and prices</a> · <a href="/cars-we-work-on/">Cars we work on</a></p>
@@ -500,7 +500,7 @@ f'''<section>
     {q('Do you do oil changes?', 'Sometimes. An oil change is usually best done on a lift, so we generally recommend your dealer or an independent shop with lifts. In some cases, we can do it in your driveway, starting at $80 plus parts. Ask us when you call, and we’ll tell you if yours is one of them.')}
     {q('What vehicles do you work on?', 'Most gas and hybrid cars, SUVs, trucks, and vans, domestic and imported, including Maserati, from model year 1996 on.')}
     {q('Do you work on electric vehicles?', 'Only some jobs: tow hitch installs, accessory installs, and, in some cases, brakes, suspension, and interior work. For anything else, call us, and we’ll refer you to a shop that does.')}
-    {q('Do you work on older cars?', 'Yes, back to model year 1996, when standard diagnostic systems (OBD-II) arrived. Older cars are harder to diagnose and find parts for. Call us, and we’ll refer you to a shop.')}
+    {q('Do you work on older cars?', 'Yes, any gas or hybrid vehicle from model year 1996 on, when standard diagnostic systems (OBD-II) arrived. For cars older than 1996, call us, and we’ll refer you to a shop that specializes in them.')}
     {q('Do you work on exotic cars?', 'Some exotic cars need a specialty shop; for example, Ferrari, Lamborghini, Rolls-Royce, and Maserati’s MC20. Call us, and we’ll refer you to a specialty shop.')}
     {q('How do I book?', f'<a href="/appointments/">Schedule a call</a>, <a href="{SMS}">text</a>, or call us at <a href="{TEL}">(908) 986-3415</a>.')}
   </div>
