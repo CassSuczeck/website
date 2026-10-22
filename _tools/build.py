@@ -202,7 +202,7 @@ def svc(title, price, intro, items_title, items, why, extra=''):
     </article>'''
 
 page('/services/', 'Mobile Auto Repair Services, Middletown NJ | Safe Travels',
-     'Mobile auto repair at your home or work in Monmouth County and nearby towns, NJ: quick fixes, inspections, dash cam installs and engine washes.',
+     'Mobile auto repair at your home or work in Monmouth County and nearby towns, NJ: quick fixes, inspections and dash cam installs.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Services</h1>
@@ -245,10 +245,6 @@ f'''<section>
          ['<strong>DCM (Data Communication Module) removal or bypass:</strong> disables the module that reports your vehicle’s data.',
           '<strong>Cellular antenna bypass:</strong> disconnects the vehicle’s cellular connection so data can’t be transmitted even if the module is left in place.'],
          ['Done correctly, without affecting unrelated systems (infotainment, Bluetooth, and speakers often share wiring with these modules)', 'Clear explanation of what’s being disabled and why'])}
-    {svc('Professional Engine Wash', '$159.99 per hour, one-hour minimum',
-         '<p>Restore your engine bay to a clean, like-new condition. Our engine wash is done by experienced technicians who know modern engine bays. We protect electronics and wiring harnesses, use professional-grade degreasers, and make sure no water gets where it shouldn’t.</p>',
-         '', [],
-         ['Done by technicians, not guesswork', 'Safe for electronic components and harnesses', 'Thorough degreasing', 'Helps long-term upkeep and resale value'])}
     {svc('Dash Cam, Camera &amp; Custom Electrical Installs', '$159.99 per hour, one-hour minimum, plus parts',
          '<p>Clean, hardwired installs for cameras, lighting, and custom electrical add-ons: no dangling cords, and done properly through your vehicle’s electrical system.</p>',
          'We install',
@@ -344,14 +340,14 @@ f'''<section>
 
 # ---------------- About ----------------
 page('/about/', 'About Us | Safe Travels Mobile Repair, Middletown NJ',
-     'Family-owned mobile auto repair founded by Feather Waters, a technician with 15+ years’ experience, serving Middletown, Red Bank, Holmdel and Hazlet, NJ.',
+     'Family-owned mobile auto repair founded by Feather Waters, a technician since 2010, serving Middletown, Red Bank, Holmdel and Hazlet, NJ.',
 f'''<section>
   <div class="wrap narrow">
     <h1>Who we are</h1>
     <figure class="founder"><picture><source type="image/webp" srcset="/assets/feather-480.webp 480w, /assets/feather-800.webp 800w" sizes="(max-width: 760px) 92vw, 320px"><img src="/assets/feather.jpg" width="800" height="800" alt="Feather Waters, founder of Safe Travels Mobile Repair, in a Safe Travels work shirt"></picture><figcaption>Feather Waters, founder and technician</figcaption></figure>
     <p class="lede">Safe Travels Mobile Repair is a family-owned mobile auto repair service based in Middletown, NJ, that brings expert and honest auto care to you, on your schedule, so your car and life stay on track.</p>
     <p>We proudly serve drivers within about 30 minutes of Middletown, including Red Bank, Holmdel, and Hazlet.</p>
-    <p>Founded by Feather Waters, a seasoned technician with over 15 years of experience, we specialize in on-site car diagnostics, vehicle inspections, and mobile car repairs that fit your schedule and lifestyle. Feather’s expertise spans from passenger cars to heavy-duty equipment, like semis and excavators. Whether you need a pre-purchase car inspection, help with a check engine light, or a solution for slow-moving windows or electrical issues, she’ll get to the root of the problem and explain it clearly before any work begins.</p>
+    <p>Founded by Feather Waters, a seasoned technician who has worked on vehicles since 2010, we specialize in on-site car diagnostics, vehicle inspections, and mobile car repairs that fit your schedule and lifestyle. Feather’s expertise spans from passenger cars to heavy-duty equipment, like semis and excavators. Whether you need a pre-purchase car inspection, help with a check engine light, or a solution for slow-moving windows or electrical issues, she’ll get to the root of the problem and explain it clearly before any work begins.</p>
     <p>Because Feather knows how disruptive car trouble can be, Safe Travels returns every voicemail the same day on business days and, in many cases, can schedule a diagnostic visit the same day.</p>
     <ul class="checks">
       <li>Serving 07758 and surrounding areas</li>
