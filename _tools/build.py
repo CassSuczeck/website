@@ -75,7 +75,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
         <p>Visits: 8:30am to 5pm, Monday to Saturday</p>
       </div>
     </div>
-    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/privacy/">Privacy policy</a></p>
+    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/privacy-policy/">Privacy policy</a></p>
   </div>
 </footer>
 </body>
@@ -316,7 +316,7 @@ f'''<section>
       <div class="field"><label for="c-msg">What’s going on with the car? (required)</label><textarea id="c-msg" name="message" placeholder="e.g. grinding noise when braking, check engine light on" required></textarea></div>
       <div class="trap" aria-hidden="true"><label for="c-web">Leave this empty</label><input id="c-web" name="website" tabindex="-1" autocomplete="off"></div>
       <div id="c-status" role="status" aria-live="polite"></div>
-      <p class="small">By sending this, you agree Safe Travels may call or text you about your request. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy/">privacy policy</a>.</p>
+      <p class="small">By sending this, you agree Safe Travels may call or text you about your request. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy-policy/">privacy policy</a>.</p>
       <button class="btn" type="submit">Send message</button>
     </form>
   </div>
@@ -504,7 +504,7 @@ f'''<section>
 </section>''', 'FAQ')
 
 # DRAFT (compliance check, Oct 13 2026): owner and, ideally, an NJ attorney review wording before launch.
-page('/privacy/', 'Privacy policy | Safe Travels Mobile Repair', 'How Safe Travels Mobile Repair collects and uses your information.',
+page('/privacy-policy/', 'Privacy Policy | Safe Travels Mobile Repair', 'How Safe Travels Mobile Repair collects and uses your information.',
 f'''<section><div class="wrap narrow">
 <h1>Privacy policy</h1>
 <p class="lede">We collect only what we need to answer you and fix your car. We never sell your information.</p>
