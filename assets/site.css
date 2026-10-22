@@ -118,3 +118,20 @@ footer.site .legal{ margin-top:22px; opacity:.9; }
 .founder img{ border-radius:16px; display:block; }
 .founder figcaption{ font-size:14px; margin-top:6px; text-align:center; }
 @media (max-width:760px){ .founder{ float:none; width:100%; max-width:360px; margin:0 auto 16px; } }
+
+/* Trust line under the Home buttons (Feather, 2026-10-22: insured; warranty page linked) */
+.trust{ font-size:15px; font-weight:600; color:var(--navy); margin:8px 0 6px; }
+section.hero .trust a{ color:var(--navy); }
+
+/* Call/text bar fixed to the bottom on phones (Feather, 2026-10-22). Desktop has the header button and footer number instead. */
+.callbar{ display:none; }
+@media (max-width:760px){
+  .callbar{ display:flex; gap:8px; position:fixed; left:0; right:0; bottom:0; z-index:20; padding:8px 12px calc(8px + env(safe-area-inset-bottom)); background:var(--navy); box-shadow:0 -2px 10px rgba(7,4,83,.25); }
+  .callbar .btn{ flex:1 1 0; min-height:48px; padding:10px 6px; font-size:16px; white-space:nowrap; }
+  .callbar .btn:first-child{ flex-grow:2; }
+  @media (max-width:360px){ .callbar .btn{ font-size:15px; } }
+  .callbar .btn.alt{ color:var(--white); border-color:var(--white); }
+  .callbar .btn.alt:hover{ background:var(--white); color:var(--navy); }
+  .callbar :focus-visible{ outline-color:var(--white); }
+  body{ padding-bottom:calc(66px + env(safe-area-inset-bottom)); }
+}

@@ -4,6 +4,8 @@ OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 CALC = 'https://tools.besafetravels.com/calculator/'
 TEL = 'tel:+19089863415'
 SMS = 'sms:+19089863415'
+# The warranty page isn't on the preview yet (it lives on Squarespace): link the live one until /warranty/ is built.
+WARRANTY = 'https://www.besafetravels.com/warranty'
 MAPS = 'https://www.google.com/maps/d/viewer?mid=1zVy3tcZjMJs6Td0ImW-RaEHxchd74Ag'
 
 NAV = [('Services', '/services/'), ('Calculator', '/calculator/'), ('Reviews', '/reviews/'),
@@ -78,6 +80,10 @@ def page(path, title, desc, body, active=None, extra_head=''):
     <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/privacy-policy/">Privacy policy</a></p>
   </div>
 </footer>
+<aside class="callbar" aria-label="Call or text us">
+  <a class="btn" href="{TEL}">Call (908) 986-3415</a>
+  <a class="btn alt" href="{SMS}">Text us</a>
+</aside>
 </body>
 </html>
 '''
@@ -120,6 +126,7 @@ f'''<section class="hero">
     <h1>Mobile auto repair in Monmouth County, NJ</h1>
     <p class="lede">We come to your home or work. No shop visit, no towing, no waiting room.</p>
     {BTNS}
+    <p class="trust">Fully insured · Written estimate before any work · <a href="{WARRANTY}">Warranty on our work</a></p>
     <p class="small">Prefer to text? <a href="{SMS}">(908) 986-3415</a></p>
   </div>
 </section>
