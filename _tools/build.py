@@ -4,8 +4,8 @@ OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 CALC = 'https://tools.besafetravels.com/calculator/'
 TEL = 'tel:+19089863415'
 SMS = 'sms:+19089863415'
-# The warranty page isn't on the preview yet (it lives on Squarespace): link the live one until /warranty/ is built.
-WARRANTY = 'https://www.besafetravels.com/warranty'
+WARRANTY = '/warranty/'
+PREVIEW = True  # launch: set to False (drops the site-wide noindex; pages built with noindex=True keep theirs)
 MAPS = 'https://www.google.com/maps/d/viewer?mid=1zVy3tcZjMJs6Td0ImW-RaEHxchd74Ag'
 
 NAV = [('Services', '/services/'), ('Calculator', '/calculator/'), ('Reviews', '/reviews/'),
@@ -19,7 +19,7 @@ LD = '''<script type="application/ld+json">
  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:30","closes":"17:00"}]}
 </script>'''
 
-def page(path, title, desc, body, active=None, extra_head=''):
+def page(path, title, desc, body, active=None, extra_head='', noindex=False):
     canon = 'https://besafetravels.com' + path
     nav = '\n'.join(
         '      <li><a href="%s"%s>%s</a></li>' % (h, ' aria-current="page"' if n == active else '', n) for n, h in NAV)
@@ -30,8 +30,8 @@ def page(path, title, desc, body, active=None, extra_head=''):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-<!-- PREVIEW: remove the robots noindex line and the preview banner at launch -->
-<meta name="robots" content="noindex, nofollow">
+<!-- PREVIEW: at launch set PREVIEW = False and remove the preview banner -->
+{'<meta name="robots" content="noindex, nofollow">' if PREVIEW or noindex else ''}
 <link rel="canonical" href="{canon}">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -77,7 +77,7 @@ def page(path, title, desc, body, active=None, extra_head=''):
         <p>Visits: 8:30am to 5pm, Monday to Saturday</p>
       </div>
     </div>
-    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/privacy-policy/">Privacy policy</a></p>
+    <p class="legal">&copy; 2026 Be Safe Travels LLC. All rights reserved. · <a href="/warranty/">Warranty</a> · <a href="/terms-and-conditions/">Terms</a> · <a href="/privacy-policy/">Privacy policy</a></p>
   </div>
 </footer>
 <aside class="callbar" aria-label="Call or text us">
@@ -550,6 +550,166 @@ f'''<section><div class="wrap narrow">
 <p>To see, correct, or delete what we have about you, call or text <a href="{TEL}">(908) 986-3415</a> or email <a href="mailto:info@besafetravels.com">info@besafetravels.com</a>. Reply STOP to any text to stop texts.</p>
 <p class="small">Be Safe Travels LLC, Port Monmouth, NJ 07758. Last updated October 2026.</p>
 </div></section>''')
+
+# ---------------- Warranty and Terms (from "BST T&C 07.30.2026", Drive) ----------------
+# The wording in TERMS is copied word for word from Feather's T&C document (printed on every written estimate).
+# Change it there first, then here. Warranty stays out of search after launch (Feather, 2026-10-24).
+TERMS_VERSION = 'July 30, 2026'
+WARRANTY_TEXT = ('Labor is covered by BST’s warranty of 90 days or 3,000 miles, whichever comes first. The aforementioned warranty is limited to the labor set forth on this Estimate only. BST’s performance under the aforementioned warranty shall be limited to, at BST’s sole discretion, a) re-repair and/or replacement of parts or b) a refund to Customer of the monies paid under this Estimate. To honor the aforementioned warranty, the vehicle and any faulty parts must be made available to BST for inspection at a time and location designated by BST, at Customer’s expense. Customer-supplied parts, customer neglect, misuse, modification, alteration, abuse, unreasonable use, or damage caused by improper maintenance, use of the vehicle for racing or for off-road purposes, and pre-existing conditions are excluded from the aforementioned warranty. Parts are warranted according to manufacturer specifications, and to the extent permitted under said warranty, BST hereby assigns said manufacturer warranty to the undersigned. THE FOREGOING IS BST’S EXCLUSIVE WRITTEN WARRANTY ON LABOR AND STATES CUSTOMER’S EXCLUSIVE REMEDY FOR THAT LABOR. TO THE EXTENT PERMITTED BY LAW, ANY IMPLIED WARRANTIES ARE LIMITED IN DURATION TO THE WARRANTY PERIOD STATED ABOVE. BST DOES NOT DISCLAIM, AND NOTHING IN THESE TERMS DISCLAIMS, ANY IMPLIED WARRANTY THAT MAY NOT BE DISCLAIMED OR LIMITED UNDER THE MAGNUSON-MOSS WARRANTY ACT, 15 U.S.C. § 2301 ET SEQ., OR NEW JERSEY LAW. SOME OF THESE LIMITATIONS MAY NOT APPLY TO CUSTOMER UNDER NEW JERSEY LAW.')
+TERMS = [
+ ('Authorization', ['By signing this Estimate, the undersigned customer (“you” or the “customer”) expressly authorizes Be Safe Travels LLC (“BST”) to perform and provide the services, repairs, and/or upgrades as listed in this Estimate, along with all parts and labor necessary (the “Services”). Customer agrees that BST has reviewed the cost of the Services, and Customer gives express authorization and consent to BST to provide such Services. Customer authorizes BST, at customer’s risk, to operate the vehicle for purposes of testing, inspection, or delivery.']),
+ ('Limited Warranty; Limitations', [WARRANTY_TEXT]),
+ ('Limitation of Liability', ['BST’S TOTAL LIABILITY IS LIMITED TO THE COST OF PARTS AND LABOR PROVIDED UNDER THIS ESTIMATE. BST is not responsible for costs of substitute transportation, transportation expenses, compensation for inconvenience or loss of use, the cost of a rental car, reimbursement for time off work, loss of income, towing charges, loss of revenue, legal fees and costs, or any consequential or incidental damages. BST is not responsible for cosmetic damage (such as tool marks, scratches, or wear near bolt heads and components), or secondary issues, failures, or problems that arise as a result of the Services. BST is not liable for damage to the vehicle caused by customer negligence, misuse, damage, wear and tear, or failure to follow maintenance recommendations. BST is not responsible for, or liable for, any claims, damages, costs, expenses, or losses unrelated to the Services provided under this Estimate. BST is not responsible if a manufacturer or third-party warranty is voided as a result of the provision of the Services. Customer agrees that Customer is responsible for loss or damage to the vehicle and to articles left in the vehicle, in the event of fire, theft, accident, or other cause beyond BST’s direct control. Notwithstanding the foregoing, nothing in these Terms limits or excludes BST’s liability for personal injury, or for property damage, to the extent caused by BST’s own negligence, gross negligence, recklessness, or willful misconduct; for any liability that may not lawfully be limited or excluded under the New Jersey Consumer Fraud Act, N.J.S.A. 56:8-1 et seq.; or for any other right that may not be waived or limited under New Jersey or federal law. The limitations and exclusions in this section apply only to the maximum extent permitted by New Jersey law.']),
+ ('Warning', ['If BST installed any video, navigational, cruise control, or other add-on equipment in Customer’s vehicle, then Customer assumes the risk of any accidents or injuries caused by using any such equipment if such use is not in conformity with the equipment manufacturer\'s safety precautions and recommendations. Further, BST assumes no liability for such accidents or injuries.']),
+ ('Supplied Parts', ['All parts supplied by BST are new unless expressly set forth in this Estimate.']),
+ ('Replaced Parts', ['Unless Customer requests the return of replaced parts before work is commenced, Customer waives the return of any parts removed or replaced by BST. Parts that are sold on an exchange basis, and parts that BST is required to return to a manufacturer or distributor, are not subject to return. BST need not return parts that, by virtue of their size, weight, or similar factors, are impractical to return.']),
+ ('Time of Service', ['Customer acknowledges that the turnaround time varies depending upon the complexity of the work, current workload, and delays beyond our control. Any delay in service estimate time table will not subject BST to any liability.']),
+ ('Payment', ['Payment in full is due upon completion of the Services set forth in the Estimate, provided that Customer shall make a 50% deposit upon execution of this Estimate. There are no refunds on installed tires, wheels, discontinued items, or on any special orders. All returned parts are subject to a 15% handling charge. If Customer cancels after executing this Estimate, BST may retain from the deposit the cost of any parts already ordered (subject to the 15% handling charge if returnable, or the full price if non-returnable, discontinued, or special-order) plus the value of any labor already performed, and BST shall refund the balance of the deposit to Customer. Customer agrees that customer has inspected the vehicle and by making final payment on the Estimate, customer acknowledges and agrees that the Services were performed satisfactorily to customer. This acknowledgment does not waive Customer’s rights under BST’s written warranty above, for latent defects not reasonably discoverable on inspection, or under the New Jersey Consumer Fraud Act, N.J.S.A. 56:8-1 et seq.']),
+ ('Estimate', ['This Estimate is the written price estimate for the Services for purposes of N.J.A.C. 13:45A-26C.2(a)(3). BST will not perform, and will not charge for, any work or parts in excess of this Estimate until BST has obtained Customer’s authorization for the additional work and cost. If that authorization is given orally, BST will note on the repair order or invoice the date, the time, the name of the person authorizing the additional work, the telephone number called, and the additional parts, labor, and total additional cost, consistent with N.J.A.C. 13:45A-26C.2(a)(6). Customer authorizes BST to contact Customer at the telephone number provided on this Estimate for this purpose.']),
+ ('Property Access; Permission to Enter; Indemnification', ['Customer represents and warrants that Customer owns, or has full authority and all permissions and consents necessary, to authorize BST and its personnel to enter and perform the Services at the location where the vehicle is located, including any private property, driveway, parking area, common or shared area, gated or guard-controlled community, condominium or homeowners-association property, apartment or multi-unit complex, employer or commercial lot, and any garage or covered structure (the “Work Location”). Customer grants BST a limited license to enter the Work Location and to move and operate the vehicle as reasonably necessary to perform the Services. Customer is responsible for arranging and providing all access BST needs to reach the vehicle, including gate codes, guard or gatehouse clearance, keys, fobs, parking authorization, and compliance with the rules of any property owner, landlord, or association; and Customer is responsible for any fee, fine, assessment, or penalty that any such third party imposes as a result of BST’s permitted access to or performance at the Work Location, except to the extent arising from BST’s own negligence or willful misconduct. Customer represents that the Work Location is reasonably suitable for the Services and will identify any known condition that could affect the safety of the Services or be susceptible to damage (for example, soft, cracked, sloped, or coated pavement). Customer assumes the risk of, and BST is not responsible for, damage to the surface or condition of the Work Location arising from the ordinary and proper performance of the Services or from pre-existing conditions, except to the extent caused by BST’s negligence. To the fullest extent permitted by law, Customer shall indemnify, defend, and hold harmless BST from any third-party claim, demand, fine, or loss arising out of (a) Customer’s lack of authority or permission to grant access to the Work Location, or (b) BST’s access to or presence at the Work Location at Customer’s direction; provided that this indemnity does not extend to any claim to the extent it arises from BST’s own negligence, recklessness, or willful misconduct, or from personal injury or property damage caused by BST.']),
+ ('Vehicle Immobilization; Duration of Service', ['Customer acknowledges that performance of the Services requires BST to disassemble the vehicle and to render it immobilized and inoperable, and that the vehicle, the immediate work area, and BST’s service vehicle will be occupied and in use during the agreed service hours as needed to complete the Services. Customer further acknowledges that the vehicle may remain immobilized and inoperable beyond the estimated completion time, including for one or more days, for reasons including parts availability, back-ordered, delayed, or non-conforming parts, supplier and shipping delays, the discovery of additional necessary work, and weather or site conditions. Customer accepts that risk, and any claim for loss of use, substitute transportation, or delay is governed by the Limitation of Liability section above. BST will notify Customer as soon as reasonably practicable if BST expects the vehicle to remain inoperable overnight or longer, and will take reasonable steps to leave the vehicle in a secured condition when BST is not on site.']),
+ ('Exclusive Access During Service', ['From the time BST begins the Services until BST notifies Customer that the vehicle has been returned to operable condition and released, the vehicle and the immediate work area are an active work site presenting risks that may include raised, jacked, or unsupported loads, removed or partially secured components, hot surfaces, open or pressurized systems, exposed fluids, and electrical hazards. For safety and to protect the integrity of the Services, Customer agrees that only BST personnel shall touch, enter, start, move, operate, work on, or otherwise access the vehicle or the work area, and Customer shall not permit any other person, including any other repairer or contractor, to do so. Customer assumes the risk of any injury, loss, or damage arising from access to the vehicle or the work area in breach of this section, and Customer shall reimburse BST for the reasonable cost of any re-inspection, re-work, replacement parts, and labor at BST’s standard rates made necessary by that access. If Customer wishes to retrieve an item from the vehicle while the Services are in progress, Customer shall ask BST, and BST will accommodate the request if BST determines it can be done safely; BST may decline or defer the request until the vehicle is in a safe condition. This section is a safety and work-quality covenant only. It does not transfer ownership or possession of the vehicle to BST, does not give BST any right to retain or detain the vehicle, and does not limit Customer’s right to direct BST to stop work, in which case BST will return the vehicle to operable condition to the extent reasonably practicable and Customer shall pay for parts and labor furnished through that time.']),
+ ('No Custody; Personal Property and Items in the Vehicle', ['Except while BST personnel are physically present and performing the Services, BST does not have and does not accept custody, possession, or control of the vehicle, and BST is not a bailee of the vehicle or of its contents. The vehicle remains at a location selected by and under the control of Customer. Customer shall remove all personal property from the vehicle before the Services begin. BST is not responsible for the loss, theft, or disappearance of personal property, parts, components, tools, or other items from the vehicle or the work area, except to the extent caused by the negligence or intentional acts of BST or BST’s personnel.']),
+ ('Fines, Penalties, and Charges During the Service Period', ['From the time Customer authorizes the Services until BST releases the vehicle, Customer is responsible for any fine, penalty, ticket, assessment, towing charge, storage charge, or similar cost imposed by any municipality, association, landlord, property owner, or other third party arising from the presence, condition, immobilization, or inoperability of the vehicle at the Work Location, except to the extent caused by BST’s negligence or by BST’s unreasonable delay in performing the Services. Customer is responsible for confirming that the vehicle may remain at the Work Location in an inoperable condition for the expected duration of the Services, and for obtaining any permission required from any property owner, landlord, or association.']),
+ ('Dispute Resolution', ['Any disputes arising from this agreement shall be resolved in accordance with New Jersey law, with venue in Monmouth County, New Jersey.']),
+ ('Photo Release', ['Customer irrevocably gives BST the right and license to photograph, record, and/or video the customer’s vehicle and the immediate work area (collectively, the “Photos”), and to edit, use, and reproduce such Photos, in whole or in part, in print or electronically, for BST’s business purposes, including marketing, advertising, promotion, portfolio, training, and documentation of the Services, on a perpetual and worldwide basis (collectively, the “Rights”). The Rights include, without limitation, using the Photos with other images, graphics, and text, and altering or modifying the Photos by traditional or digital photographic techniques including creating composite, blurred, or distorted representations, retouching, and changing color, perspective, foreground, size, shape, context, or background. Customer agrees that all rights in each Photo, photograph, recording, or video taken by or on behalf of BST, including all copyrights, are BST\'s exclusive property. Customer grants the Rights only as to the vehicle and as to areas that Customer has authority to permit BST to photograph. BST will not publish any Photo in which Customer or any other individual is personally identifiable without that person’s separate written consent, will obscure the vehicle’s license plate and vehicle identification number in any Photo that BST publishes, and will not publish any Photo that identifies the street address of the Work Location. To the fullest extent permitted by applicable law, Customer waives claims against BST for violation of the right of privacy or publicity arising from BST’s authorized and lawful use of the Photos as permitted by this section; provided that this section shall not be applied to waive any right or remedy that may not lawfully be waived by Customer under New Jersey law.']),
+ ('Severability; New Jersey Savings Clause', ['If any provision of these Terms is held void, unenforceable, or inapplicable, that provision shall be enforced to the maximum extent permitted and the remaining provisions shall remain in full force. No provision of these Terms is intended to, and no provision shall be applied to, waive, limit, or disclaim any right or remedy that a consumer has under New Jersey law that may not lawfully be waived, limited, or disclaimed, including rights under the New Jersey Consumer Fraud Act, N.J.S.A. 56:8-1 et seq., the Truth-in-Consumer Contract, Warranty and Notice Act, N.J.S.A. 56:12-14 et seq., and the automotive-repair regulations at N.J.A.C. 13:45A-26C.1 et seq. To the extent any limitation of liability, exclusion, disclaimer, or indemnity in these Terms would otherwise be void or unenforceable as applied to a New Jersey consumer, it does not apply to Customer in New Jersey.']),
+ ('Entire Agreement; Modifications', ['This Estimate, including these Terms, is the entire agreement between BST and Customer regarding the Services and supersedes all prior discussions and understandings. These Terms may be modified only in a writing signed by BST. Customer may sign this Estimate electronically, and an electronic, scanned, or photocopied signature shall have the same force and effect as an original.']),
+]
+NOTICE = ['When a motor vehicle is physically presented during normal working hours and, in any event before work begins, a written estimated price stated either:<ol type="A"><li>PRICE NOT TO EXCEED $..., and given without charge; or</li><li>As an exact figure broken down as to parts and labor. This establishment has the right to charge you for this diagnostic service, although if you then have the repair done here, you will not be charged twice for any part of such charge necessary to make the repair.</li><li>As an exact figure to complete a specific repair.</li></ol>',
+          'For your protection, you may waive your right to an estimate only by signing a written waiver.',
+          'Require that this establishment not start work on your vehicle until you sign an authorization stating the nature of the repair or problem and the odometer reading of your vehicle if you physically present the vehicle here during normal working hours.',
+          'A detailed invoice stating charges for parts and labor separately and whether any new, rebuilt, reconditioned or used parts have been supplied.',
+          'The replaced parts, if requested before work is commenced, unless their size, weight or similar factors make return of the parts impractical.',
+          'A written copy of the guaranty.”']
+def anchor(h): return h.lower().replace(';','').replace(',','').replace(' ','-')
+TERMS_HTML = '\n'.join(f'<h2 id="{anchor(h)}">{html.escape(h)}</h2>' + ''.join(f'<p>{html.escape(t)}</p>' for t in ps) for h, ps in TERMS)
+TERMS_TOC = ''.join(f'<li><a href="#{anchor(h)}">{html.escape(h)}</a></li>' for h, _ in TERMS)
+
+page('/warranty/', 'Our Warranty | Safe Travels Mobile Repair, Monmouth County, NJ',
+     'Safe Travels Mobile Repair warrants its labor for 90 days or 3,000 miles, whichever comes first. What it covers and how to make a claim.',
+f'''<section><div class="wrap narrow">
+<h1>Our warranty</h1>
+<p class="lede">Our labor is covered for <strong>90 days or 3,000 miles</strong>, whichever comes first.</p>
+<h2>What it covers</h2>
+<ul class="checks">
+<li>The labor listed on your signed written estimate.</li>
+<li>Parts carry their manufacturer’s warranty, and we pass that warranty on to you.</li>
+</ul>
+<h2>How we make it right</h2>
+<p>If work we did isn’t right within the warranty period, we’ll either redo the repair or replace the parts, or refund what you paid for that work. We choose which.</p>
+<h2>How to make a claim</h2>
+<p>Call or text <a href="{TEL}">(908) 986-3415</a> or email <a href="mailto:info@besafetravels.com">info@besafetravels.com</a>. We’ll set a time and place to look at the vehicle and any faulty parts; any cost of getting the vehicle there is yours.</p>
+<h2>What it doesn’t cover</h2>
+<ul>
+<li>Parts you supplied</li>
+<li>Neglect, misuse, abuse, modification, alteration or unreasonable use</li>
+<li>Damage from improper maintenance</li>
+<li>Racing or off-road use</li>
+<li>Problems the vehicle already had</li>
+</ul>
+<h2>Your rights under the law</h2>
+<p>Nothing in our warranty takes away rights you have under the Magnuson-Moss Warranty Act or New Jersey law.</p>
+<h2>The full wording</h2>
+<p class="small">This is the warranty as printed on every written estimate (Terms and Conditions, version of {TERMS_VERSION}). If anything above differs from it, this wording applies.</p>
+<blockquote class="legal-text"><p>{html.escape(WARRANTY_TEXT)}</p></blockquote>
+<p><a href="/terms-and-conditions/">Read our full terms and conditions</a></p>
+</div></section>''', noindex=True)
+
+page('/terms-and-conditions/', 'Terms and Conditions | Safe Travels Mobile Repair',
+     'The terms and conditions printed on every Safe Travels Mobile Repair written estimate, including our warranty and the customer notice required in New Jersey.',
+f'''<section><div class="wrap narrow">
+<h1>Service terms and conditions</h1>
+<p class="lede">These terms are printed on every written estimate. They apply to the work listed on an estimate once you sign it.</p>
+<p>Questions before you sign? Call or text <a href="{TEL}">(908) 986-3415</a>. Our labor warranty is explained in plain language on <a href="/warranty/">our warranty page</a>.</p>
+<nav aria-label="Sections"><ul class="toc">{TERMS_TOC}<li><a href="#customer-notice">Required customer notice</a></li></ul></nav>
+<div class="legal-text">
+{TERMS_HTML}
+</div>
+<h2 id="customer-notice">Required customer notice</h2>
+<p class="small">Posted as required by N.J.A.C. 13:45A-26C.2(a)(11).</p>
+<div class="legal-text">
+<p>“A CUSTOMER OF THIS ESTABLISHMENT IS ENTITLED TO:</p>
+<ol>{''.join(f'<li>{n}</li>' for n in NOTICE)}</ol>
+</div>
+<p class="small">Be Safe Travels LLC, Port Monmouth, NJ 07758. Version of {TERMS_VERSION}.</p>
+</div></section>''')
+
+# ---------------- Promotions (DRAFT 2026-10-24, to-do 14; not linked yet, Feather reviews first) ----------------
+# Every offer here is a standing price or policy, so nothing needs an end date. A dated offer must state its dates
+# and terms on the page. Wording: calm and specific, no "deals", no countdowns, no pressure, no knocking anyone.
+PROMO_END = 'November 24, 2026'  # community offers: one month from Oct 24, 2026 (Feather)
+def offer(title, price, body, terms, h='h2'):
+    return f'''<article class="card offer">
+      <{h}>{title}</{h}>
+      {f'<p class="price">{price}</p>' if price else ''}
+      <p>{body}</p>
+      <p class="small">{terms}</p>
+    </article>'''
+page('/promotions/', 'Promotions | Safe Travels Mobile Repair, Monmouth County, NJ',
+     'Ways to get more from a Safe Travels visit: one consolidated appointment for small jobs, a winter readiness review, pre-purchase inspections and a free first conversation.',
+f'''<section class="hero">
+  <div class="wrap narrow">
+    <h1>Promotions</h1>
+    <p class="lede">A few considered ways to get more from each visit. We come to your driveway or office lot, so the car gets our attention while your day carries on.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="cards offers">
+      {offer('The consolidated visit', 'Trip fee and mileage waived',
+             'Save the small things for one appointment: a bulb, a wiper, a mirror, a door latch. Once the work reaches our one-hour minimum ($159.99), we waive the $25 trip fee and the mileage.',
+             'Ongoing. Parts are extra. A single small job on its own is a $25 trip fee plus parts and mileage ($1 per mile, round trip, from Port Monmouth).')}
+      {offer('Winter readiness review', '$99.99',
+             'Before the cold settles in, a hands-on multipoint inspection of the main systems: engine, transmission and axles; brakes, including the parking brake; tires; suspension; and safety systems. Includes an OBD-II scan when time on site allows, photos, and written technician notes, so you can plan any work on your own schedule.',
+             'Flat price. A trip fee and mileage may apply beyond a 30-minute drive. Any repair is quoted separately, in writing, before work begins.')}
+      {offer('Before you buy', '$59.99',
+             'Considering a used car? We meet you at the seller’s driveway or the dealer’s lot and inspect it before you commit, so you know what you’re buying.',
+             'Flat price. A trip fee and mileage may apply beyond a 30-minute drive.')}
+      {offer('A first conversation, on us', 'Free',
+             'Tell us what you’re hearing, feeling or seeing. We’ll give you our honest read and a ballpark price by phone, before anyone drives anywhere.',
+             f'Calls answered 7am to 8pm. On-site diagnostics are $159.99 per hour, one-hour minimum, credited toward the repair if you go ahead.')}
+    </div>
+  </div>
+</section>
+<section class="tint" id="community">
+  <div class="wrap">
+    <h2>Community offers, through {PROMO_END}</h2>
+    <p class="lede">For our neighbors. No coupon, code or proof: mention the offer when you book, and we take your word for it.</p>
+    <div class="cards">
+      {offer('For MSK patients, caregivers and families', '50% off your visit',
+             'If you’re a patient at Memorial Sloan Kettering (MSK), or caring for one, or family of one: half off your service visit. One less thing to arrange.',
+             f'Through {PROMO_END}. Off the visit’s final price before tax, parts and labor, whether it’s an inspection or a repair.', 'h3')}
+      {offer('For Friendly Dental patients, caregivers and families', '10% off your visit',
+             'If you, someone you care for, or someone in your family is a patient of Friendly Dental: 10% off your service visit.',
+             f'Through {PROMO_END}. Off the visit’s final price before tax, parts and labor, whether it’s an inspection or a repair.', 'h3')}
+      {offer('For Joint Physical Therapy patients, caregivers and families', '10% off your visit',
+             'If you, someone you care for, or someone in your family is a patient of Joint Physical Therapy: 10% off your service visit.',
+             f'Through {PROMO_END}. Off the visit’s final price before tax, parts and labor, whether it’s an inspection or a repair.', 'h3')}
+    </div>
+    <h3 style="margin-top:28px">How these offers work</h3>
+    <ul class="checks">
+      <li>Mention the offer when you book. There’s no coupon or code, and we will never ask for proof of a diagnosis, treatment, appointment or family connection.</li>
+      <li>However you heard about it, from a friend, our website, or our service vehicle, we’ll honor it through {PROMO_END}.</li>
+      <li>The offer comes off the final price of your service visit, before tax, whether it’s an inspection or a repair. You still get a written estimate before any work begins, with the offer shown on it.</li>
+    </ul>
+    <p class="small">Offers valid through {PROMO_END}. Terms and conditions apply; subject to change without notice. Safe Travels Mobile Repair isn’t affiliated with, sponsored by or endorsed by Memorial Sloan Kettering, Friendly Dental or Joint Physical Therapy; these offers are our own.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap narrow">
+    <h2>Every visit, the same way</h2>
+    <ul class="checks">
+      <li>A written estimate before any work begins.</li>
+      <li>Diagnostic time credited toward the repair.</li>
+      <li>Labor covered for 90 days or 3,000 miles. <a href="/warranty/">Our warranty</a></li>
+    </ul>
+    <div class="btn-row">
+      <a class="btn" href="/appointments/">Schedule a call</a>
+      <a class="btn alt" href="{CALC}">Get my estimate</a>
+    </div>
+  </div>
+</section>''')
 
 open(os.path.join(OUT, 'robots.txt'), 'w').write('# Preview: keep search engines out until launch\nUser-agent: *\nDisallow: /\n')
 page('/_404/', 'Page not found | Safe Travels Mobile Repair', 'Page not found.',
