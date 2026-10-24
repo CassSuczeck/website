@@ -15,7 +15,7 @@ LD = '''<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AutoRepair","name":"Safe Travels Mobile Repair","legalName":"Be Safe Travels LLC",
  "url":"https://besafetravels.com/","logo":"https://besafetravels.com/assets/logo.png","telephone":"+1-908-986-3415","email":"info@besafetravels.com",
  "address":{"@type":"PostalAddress","addressLocality":"Port Monmouth","addressRegion":"NJ","postalCode":"07758","addressCountry":"US"},
- "areaServed":"Monmouth County, NJ",
+ "areaServed":["Monmouth County, NJ","Middlesex County, NJ"],
  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:30","closes":"17:00"}]}
 </script>'''
 
@@ -97,9 +97,10 @@ BTNS = f'''<div class="btn-row">
       <a class="btn" href="{TEL}">Call (908) 986-3415</a>
     </div>'''
 
-TOWNS = ('Middletown, Holmdel, Hazlet, Keyport, Keansburg, Matawan, Aberdeen, Atlantic Highlands, Highlands, Rumson, '
-         'Red Bank, Shrewsbury, Colts Neck, Tinton Falls, Eatontown, Long Branch, Ocean Township, Asbury Park, Wall, '
-         'Marlboro, Old Bridge, Sayreville, Perth Amboy, and Woodbridge')
+TOWNS = ('Middletown, Holmdel, Hazlet, Keyport, Keansburg, Union Beach, Matawan, Aberdeen, Atlantic Highlands, Highlands, '
+         'Rumson, Red Bank, Little Silver, Shrewsbury, Monmouth Beach, Colts Neck, Tinton Falls, Eatontown, Long Branch, Deal, '
+         'Ocean Township, Asbury Park, Neptune, Belmar, Wall, Marlboro, Manalapan, Old Bridge, Sayreville, South Amboy, '
+         'Perth Amboy, Woodbridge, Metuchen, and Edison')
 def town_url(t): return '/mobile-mechanic-%s-nj/' % t.lower().replace(' ', '-')
 _t = [t.strip() for t in TOWNS.replace(' and ', ' ').split(',')]
 TOWNS_LINKED = ', '.join('<a href="%s">%s</a>' % (town_url(t), t) for t in _t[:-1]) + ', and <a href="%s">%s</a>' % (town_url(_t[-1]), _t[-1])
@@ -169,7 +170,7 @@ f'''<section class="hero">
       <p>We come to you in {TOWNS_LINKED}.</p>
       <p>Don’t see your town? Call or text <a href="{TEL}">(908) 986-3415</a>.</p>
     </div>
-    <a class="map" href="{MAPS}"><picture><source type="image/webp" srcset="/assets/service-area-map-490.webp 490w, /assets/service-area-map.webp 920w" sizes="(max-width: 760px) 92vw, 490px"><img src="/assets/service-area-map.jpg" width="920" height="968" loading="lazy" alt="Map of the Safe Travels Mobile Repair service area in New Jersey, from Woodbridge and Perth Amboy south through Sayreville, Old Bridge, Hazlet, Holmdel, Middletown, Red Bank, Rumson, Eatontown and Long Branch to Asbury Park and Wall. Opens the interactive map."></picture></a>
+    <a class="map" href="{MAPS}"><picture><source type="image/webp" srcset="/assets/service-area-map-490.webp 490w, /assets/service-area-map.webp 840w" sizes="(max-width: 760px) 92vw, 490px"><img src="/assets/service-area-map.jpg" width="840" height="1000" loading="lazy" alt="Map of the Safe Travels Mobile Repair service area, about a 30-minute drive from Middletown, NJ: from Edison and Woodbridge south through Sayreville, Old Bridge, Marlboro, Manalapan, Holmdel, Middletown, Colts Neck and Long Branch to Neptune and Belmar. Opens the interactive map."></picture></a>
   </div>
 </section>
 <section class="tint">
@@ -377,25 +378,35 @@ TOWN_PAGES = [
   ('Hazlet', 'Monmouth', 'Hazlet borders Middletown and is one of the closest towns to our base in Port Monmouth.'),
   ('Keyport', 'Monmouth', 'Keyport is a Bayshore borough a short drive west of our base in Port Monmouth.'),
   ('Keansburg', 'Monmouth', 'Keansburg is a Bayshore borough right next to Port Monmouth, so it’s one of the closest towns we serve.'),
+  ('Union Beach', 'Monmouth', 'Union Beach is a Bayshore borough on Raritan Bay, a short drive west of our base in Port Monmouth.'),
   ('Matawan', 'Monmouth', 'Matawan is a short drive west of our base in Port Monmouth, along the Bayshore.'),
   ('Aberdeen', 'Monmouth', 'Aberdeen Township, including Cliffwood and Strathmore, is a short drive west of our base in Port Monmouth.'),
   ('Atlantic Highlands', 'Monmouth', 'Atlantic Highlands sits on Sandy Hook Bay, a short drive east of our base in Port Monmouth.'),
   ('Highlands', 'Monmouth', 'Highlands sits at the foot of the bridge to Sandy Hook, a short drive east of our base in Port Monmouth.'),
   ('Rumson', 'Monmouth', 'Rumson sits between the Navesink and Shrewsbury rivers, within our usual service area.'),
   ('Red Bank', 'Monmouth', 'Red Bank is a short drive from our base in Port Monmouth. If you work downtown, we can fix your car in your work lot while you’re at your desk.'),
+  ('Little Silver', 'Monmouth', 'Little Silver, just southeast of Red Bank, is within our usual service area.'),
   ('Shrewsbury', 'Monmouth', 'Shrewsbury, just south of Red Bank, is within our usual service area.'),
+  ('Monmouth Beach', 'Monmouth', 'Monmouth Beach, on the ocean just north of Long Branch, is within our service area.'),
   ('Colts Neck', 'Monmouth', 'Colts Neck is within our usual service area. On a farm or a long driveway, we come to wherever the car is parked.'),
   ('Tinton Falls', 'Monmouth', 'Tinton Falls is within our usual service area, at your home or at work.'),
   ('Eatontown', 'Monmouth', 'Eatontown is within our usual service area, at your home or at work.'),
   ('Long Branch', 'Monmouth', 'Long Branch, on the oceanfront, is within our service area.'),
+  ('Deal', 'Monmouth', 'Deal, on the oceanfront just south of Long Branch, is within our service area.'),
   ('Ocean Township', 'Monmouth', 'Ocean Township, including Oakhurst and Wanamassa, is within our service area.'),
-  ('Asbury Park', 'Monmouth', 'Asbury Park, on the shore, is at the southern edge of our service area.'),
+  ('Asbury Park', 'Monmouth', 'Asbury Park, on the shore, is within our service area.'),
+  ('Neptune', 'Monmouth', 'Neptune Township, including Ocean Grove, is within our service area, just south of Asbury Park.'),
+  ('Belmar', 'Monmouth', 'Belmar, on the shore, is at the southern edge of our service area.'),
   ('Wall', 'Monmouth', 'Wall Township is at the southern edge of our service area.'),
   ('Marlboro', 'Monmouth', 'Marlboro is within our service area, west of Holmdel.'),
+  ('Manalapan', 'Monmouth', 'Manalapan, southwest of Marlboro, is at the western edge of our service area.'),
   ('Old Bridge', 'Middlesex', 'Old Bridge, just over the Middlesex County line, is within our service area.'),
   ('Sayreville', 'Middlesex', 'Sayreville, including Parlin and Morgan, is within our service area in Middlesex County.'),
-  ('Perth Amboy', 'Middlesex', 'Perth Amboy, at the mouth of the Raritan River, is at the northern edge of our service area.'),
+  ('South Amboy', 'Middlesex', 'South Amboy, on Raritan Bay across the river from Perth Amboy, is within our service area in Middlesex County.'),
+  ('Perth Amboy', 'Middlesex', 'Perth Amboy, at the mouth of the Raritan River, is within our service area in Middlesex County.'),
   ('Woodbridge', 'Middlesex', 'Woodbridge Township, including Iselin, Colonia, Fords and Avenel, is at the northern edge of our service area.'),
+  ('Metuchen', 'Middlesex', 'Metuchen, a borough surrounded by Edison, is at the northern edge of our service area.'),
+  ('Edison', 'Middlesex', 'Edison Township is at the northern edge of our service area.'),
 ]
 for town, county, p1 in TOWN_PAGES:
     p2 = 'Distances beyond a 30-minute drive add $1 per mile, round trip; call and we’ll tell you before we book.' if 'edge' in p1 else 'We come to your driveway or work lot, so you don’t lose a day to the shop.'

@@ -27,10 +27,10 @@ URLs match the Squarespace site so links and rankings survive a switch.
 No other build step; GitHub Pages serves the files as they are.
 
 ## Needs Feather's review before launch
-- **Town page intros** (`TOWN_PAGES` in `build.py`, 24 towns): each has one or two lines of local fact (borders, neighborhoods, rivers). Confirm each is right and that she wants to be listed there. Towns marked "edge of our service area" (Asbury Park, Wall, Perth Amboy, Woodbridge) say a $1/mile round-trip charge may apply beyond 30 minutes; check which towns are really beyond 30 minutes.
+- **Town page intros** (`TOWN_PAGES` in `build.py`, 34 towns, matched to the 2026-10-24 service area map): each has one or two lines of local fact (borders, neighborhoods, rivers). Confirm each is right and that she wants to be listed there. Towns marked "edge of our service area" (Belmar, Wall, Manalapan, Woodbridge, Metuchen, Edison) say a $1/mile round-trip charge may apply beyond 30 minutes; check which towns are really beyond 30 minutes.
 - **Cars we work on** (`/cars-we-work-on/`): make list copied from the calculator's `BRAND_TIER`/`DOMESTIC_MAKES` (Tools repo). Keep the two in sync.
 - **Our Tools** (`/our-tools/`): tool and factory-software brands from the calculator repo's `docs/brands-page-draft.md` (to-do 16). Names only: logos need each brand's written OK.
-- **Warranty and Terms pages are missing** from the preview (live Squarespace has `/warranty` and a Terms page). Build both with the same URLs before launch; until then Home's trust line links the live warranty page (`WARRANTY` in `build.py`).
+- **Warranty and Terms pages are missing** from the preview (live Squarespace has `/warranty` and a Terms page). Build both with the same URLs before launch; Warranty keeps `noindex` after launch (Feather, 2026-10-24: not in search results, same as live); until then Home's trust line links the live warranty page (`WARRANTY` in `build.py`).
 - Adding a town: add it to both `TOWNS` and `TOWN_PAGES` (the home list links every town to its page).
 - **Privacy policy** (`/privacy-policy/`, with a "Calls and texts" section; Feather 2026-10-13: no separate SMS terms page): draft written for the Oct 13, 2026 compliance check; Feather's final wording, optional NJ attorney review. The privacy page names Calendly, Google and Google Voice (business calls and texts). Add any new service that handles customer data.
 
