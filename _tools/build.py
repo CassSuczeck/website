@@ -99,8 +99,9 @@ BTNS = f'''<div class="btn-row">
 
 TOWNS = ('Middletown, Holmdel, Hazlet, Keyport, Keansburg, Union Beach, Matawan, Aberdeen, Atlantic Highlands, Highlands, '
          'Rumson, Red Bank, Little Silver, Shrewsbury, Monmouth Beach, Colts Neck, Tinton Falls, Eatontown, Long Branch, Deal, '
-         'Ocean Township, Asbury Park, Neptune, Belmar, Wall, Marlboro, Manalapan, Old Bridge, Sayreville, South Amboy, '
-         'Perth Amboy, Woodbridge, Metuchen, and Edison')
+         'Ocean Township, Asbury Park, Neptune, Belmar, Wall, Marlboro, Manalapan, Englishtown, Freehold, Old Bridge, '
+         'Spotswood, East Brunswick, North Brunswick, New Brunswick, Sayreville, South Amboy, Perth Amboy, Woodbridge, '
+         'Metuchen, and Edison')
 def town_url(t): return '/mobile-mechanic-%s-nj/' % t.lower().replace(' ', '-')
 _t = [t.strip() for t in TOWNS.replace(' and ', ' ').split(',')]
 TOWNS_LINKED = ', '.join('<a href="%s">%s</a>' % (town_url(t), t) for t in _t[:-1]) + ', and <a href="%s">%s</a>' % (town_url(_t[-1]), _t[-1])
@@ -170,7 +171,7 @@ f'''<section class="hero">
       <p>We come to you in {TOWNS_LINKED}.</p>
       <p>Don’t see your town? Call or text <a href="{TEL}">(908) 986-3415</a>.</p>
     </div>
-    <a class="map" href="{MAPS}"><picture><source type="image/webp" srcset="/assets/service-area-map-490.webp 490w, /assets/service-area-map.webp 840w" sizes="(max-width: 760px) 92vw, 490px"><img src="/assets/service-area-map.jpg" width="840" height="1000" loading="lazy" alt="Map of the Safe Travels Mobile Repair service area, about a 30-minute drive from Middletown, NJ: from Edison and Woodbridge south through Sayreville, Old Bridge, Marlboro, Manalapan, Holmdel, Middletown, Colts Neck and Long Branch to Neptune and Belmar. Opens the interactive map."></picture></a>
+    <a class="map" href="{MAPS}"><picture><source type="image/webp" srcset="/assets/service-area-map-490.webp 490w, /assets/service-area-map.webp 1050w" sizes="(max-width: 760px) 92vw, 490px"><img src="/assets/service-area-map.jpg" width="1050" height="1020" loading="lazy" alt="Map of the Safe Travels Mobile Repair service area, about a 30-minute drive from Middletown, NJ: from Woodbridge and Edison south through New Brunswick, East Brunswick, Old Bridge, Marlboro, Manalapan, Freehold, Holmdel, Middletown, Red Bank and Long Branch to Asbury Park, Neptune and Belmar. Opens the interactive map."></picture></a>
   </div>
 </section>
 <section class="tint">
@@ -400,13 +401,19 @@ TOWN_PAGES = [
   ('Wall', 'Monmouth', 'Wall Township is at the southern edge of our service area.'),
   ('Marlboro', 'Monmouth', 'Marlboro is within our service area, west of Holmdel.'),
   ('Manalapan', 'Monmouth', 'Manalapan, southwest of Marlboro, is at the western edge of our service area.'),
+  ('Englishtown', 'Monmouth', 'Englishtown, a small borough surrounded by Manalapan, is at the western edge of our service area.'),
+  ('Freehold', 'Monmouth', 'Freehold Borough, the Monmouth County seat, and the nearby parts of Freehold Township are at the southwestern edge of our service area.'),
   ('Old Bridge', 'Middlesex', 'Old Bridge, just over the Middlesex County line, is within our service area.'),
+  ('Spotswood', 'Middlesex', 'Spotswood, a borough next to East Brunswick, is within our service area.'),
+  ('East Brunswick', 'Middlesex', 'East Brunswick, along the New Jersey Turnpike in Middlesex County, is within our service area.'),
+  ('North Brunswick', 'Middlesex', 'North Brunswick, just southwest of New Brunswick, is at the western edge of our service area.'),
+  ('New Brunswick', 'Middlesex', 'New Brunswick, the Middlesex County seat on the Raritan River, is at the western edge of our service area.'),
   ('Sayreville', 'Middlesex', 'Sayreville, including Parlin and Morgan, is within our service area in Middlesex County.'),
   ('South Amboy', 'Middlesex', 'South Amboy, on Raritan Bay across the river from Perth Amboy, is within our service area in Middlesex County.'),
   ('Perth Amboy', 'Middlesex', 'Perth Amboy, at the mouth of the Raritan River, is within our service area in Middlesex County.'),
-  ('Woodbridge', 'Middlesex', 'Woodbridge Township, including Iselin, Colonia, Fords and Avenel, is at the northern edge of our service area.'),
-  ('Metuchen', 'Middlesex', 'Metuchen, a borough surrounded by Edison, is at the northern edge of our service area.'),
-  ('Edison', 'Middlesex', 'Edison Township is at the northern edge of our service area.'),
+  ('Woodbridge', 'Middlesex', 'Woodbridge Township, including Iselin, Colonia, Fords and Avenel, is within our service area in Middlesex County.'),
+  ('Metuchen', 'Middlesex', 'Metuchen, a borough surrounded by Edison, is within our service area.'),
+  ('Edison', 'Middlesex', 'Edison Township is within our service area in Middlesex County.'),
 ]
 for town, county, p1 in TOWN_PAGES:
     p2 = 'Distances beyond a 30-minute drive add $1 per mile, round trip; call and we’ll tell you before we book.' if 'edge' in p1 else 'We come to your driveway or work lot, so you don’t lose a day to the shop.'
