@@ -44,6 +44,7 @@ No other build step; GitHub Pages serves the files as they are.
 - Review sources: C.W., D.P. on Nextdoor; C.H., E.C. on Google; the dash cam review is by Feather's spouse, so its attribution says so (FTC endorsement rule: disclose family ties). Keep a screenshot of each.
 
 ## Rules (same as the calculator repo)
+- **Security first** (Feather, 2026-10-24): always consider cybersecurity when writing code, especially anything open to input from the public (forms, receivers, URLs, uploads). Validate on the server, cap lengths, neutralize spreadsheet formulas, rate-limit, never trust the browser, keep secrets out of public repos, and ask only for the **narrowest permissions** (pin Apps Script scopes in `appsscript.json`; never name the full-mailbox Gmail service in code or comments, because Apps Script guesses scopes from the text). Check what a consent screen will show before Feather runs it.
 - **Don't commit or push before Feather approves.** A push to `main` goes live on GitHub Pages in about 2 minutes.
 - Public repo: **never commit secrets**.
 - Marketing copy: never disparage competitors, dealers or DIY/backyard mechanics; no fear-based (FUD) copy. Customer reviews are quoted word for word.
