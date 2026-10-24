@@ -9,7 +9,7 @@ PREVIEW = True  # launch: set to False (drops the site-wide noindex; pages built
 MAPS = 'https://www.google.com/maps/d/viewer?mid=1zVy3tcZjMJs6Td0ImW-RaEHxchd74Ag'
 # Website form receiver (Apps Script /exec URL; code: CassSuczeck/calculator apps-script/website-receiver.gs).
 # Empty = not deployed yet: the forms validate, then tell people to call instead of pretending to send.
-FORMS_ENDPOINT = ''
+FORMS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxSlbbcyRQAAjIvanQKDokyq7LJZIUgJ8iDbD-JXx5H_k9UQJd-hZQxmGQfN1x9haoq/exec'
 
 NAV = [('Services', '/services/'), ('Calculator', '/calculator/'), ('Reviews', '/reviews/'),
        ('Appointments', '/appointments/'), ('Contact', '/contact/'), ('About', '/about/'), ('FAQ', '/faq/')]

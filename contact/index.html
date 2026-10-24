@@ -64,7 +64,7 @@
 </section>
 <script>
 (function(){
-  var ENDPOINT = '', OPENED = Date.now(), PHONE = '<a href="tel:+19089863415">(908) 986-3415</a>';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxSlbbcyRQAAjIvanQKDokyq7LJZIUgJ8iDbD-JXx5H_k9UQJd-hZQxmGQfN1x9haoq/exec', OPENED = Date.now(), PHONE = '<a href="tel:+19089863415">(908) 986-3415</a>';
   window.stSend = function(form, payload, okHtml){
     var st = form.querySelector('[role=status]'), btn = form.querySelector('button[type=submit]');
     function say(cls, html){ st.className = 'msg ' + cls; st.innerHTML = html; }
