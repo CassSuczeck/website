@@ -64,8 +64,29 @@
 </section>
 <script>
 (function(){
-  // Preview: no endpoint yet. At launch this posts to an Apps Script lead receiver (same pattern as the calculator).
-  var ENDPOINT = '';
+  var ENDPOINT = '', OPENED = Date.now(), PHONE = '<a href="tel:+19089863415">(908) 986-3415</a>';
+  window.stSend = function(form, payload, okHtml){
+    var st = form.querySelector('[role=status]'), btn = form.querySelector('button[type=submit]');
+    function say(cls, html){ st.className = 'msg ' + cls; st.innerHTML = html; }
+    if (!ENDPOINT) { say('err', 'This is a preview: the form isn’t connected yet. Please call or text ' + PHONE + '.'); return; }
+    payload.website = form.querySelector('.trap input').value; // bot trap: people never see this field
+    payload.elapsed = Date.now() - OPENED;                     // bots post instantly; the server checks this too
+    payload.page = location.pathname;
+    var label = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
+    var ctl = window.AbortController ? new AbortController() : null, timer = ctl && setTimeout(function(){ ctl.abort(); }, 15000);
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, signal: ctl ? ctl.signal : undefined, body: JSON.stringify(payload) })
+      .then(function(res){ return res.json(); })
+      .then(function(b){
+        if (!b || b.result !== 'success') throw new Error((b && b.message) || 'Not saved');
+        form.reset(); say('ok', okHtml); btn.textContent = label; btn.disabled = false;
+      })
+      .catch(function(){ say('err', 'We couldn’t send this. Please try again, or call us at ' + PHONE + '.'); btn.disabled = false; btn.textContent = label; })
+      .then(function(){ if (timer) clearTimeout(timer); });
+  };
+})();
+</script>
+<script>
+(function(){
   var f = document.getElementById('contact'), st = document.getElementById('c-status');
   function say(cls, t){ st.className = 'msg ' + cls; st.textContent = t; }
   f.addEventListener('submit', function(e){
@@ -74,7 +95,8 @@
     var name = v('name'), phone = v('phone'), email = v('email'), vehicle = v('vehicle'), town = v('town'), msg = v('message');
     if (!name || phone.replace(/\D/g,'').length < 10 || !vehicle || !town || !msg) { say('err', 'Please add your name, a phone number with at least 10 digits, your vehicle, your town, and what’s going on with the car.'); return; }
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('err', 'Please check your email address, or leave it blank.'); return; }
-    if (!ENDPOINT) { say('err', 'This is a preview: the form isn’t connected yet. Please call or text (908) 986-3415.'); return; }
+    stSend(f, { form: 'contact', name: name, phone: phone, email: email, vehicle: vehicle, town: town, message: msg },
+      'Message sent. We’ll call or text you soon. Need us sooner? Call <a href="tel:+19089863415">(908) 986-3415</a>.');
   });
 })();
 </script>
